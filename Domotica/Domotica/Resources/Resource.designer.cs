@@ -1381,23 +1381,23 @@ namespace Domotica
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f0c0070
-			public const int Add_Button = 2131492976;
-			
-			// aapt resource value: 0x7f0c006a
-			public const int Ch1 = 2131492970;
-			
-			// aapt resource value: 0x7f0c006b
-			public const int Ch2 = 2131492971;
+			// aapt resource value: 0x7f0c0072
+			public const int Add_Button = 2131492978;
 			
 			// aapt resource value: 0x7f0c006c
-			public const int Ch3 = 2131492972;
+			public const int Ch1 = 2131492972;
 			
 			// aapt resource value: 0x7f0c006d
-			public const int Ch4 = 2131492973;
+			public const int Ch2 = 2131492973;
 			
 			// aapt resource value: 0x7f0c006e
-			public const int ChAll = 2131492974;
+			public const int Ch3 = 2131492974;
+			
+			// aapt resource value: 0x7f0c006f
+			public const int Ch4 = 2131492975;
+			
+			// aapt resource value: 0x7f0c0070
+			public const int ChAll = 2131492976;
 			
 			// aapt resource value: 0x7f0c0052
 			public const int ConnectionButton = 2131492946;
@@ -1405,11 +1405,17 @@ namespace Domotica
 			// aapt resource value: 0x7f0c004f
 			public const int Connection_Text = 2131492943;
 			
-			// aapt resource value: 0x7f0c0068
-			public const int Refresh_Sensors = 2131492968;
+			// aapt resource value: 0x7f0c006a
+			public const int Refresh_Sensors = 2131492970;
 			
-			// aapt resource value: 0x7f0c0069
-			public const int Toggle_SensorRefresh = 2131492969;
+			// aapt resource value: 0x7f0c0066
+			public const int Sensor1_Checkbox = 2131492966;
+			
+			// aapt resource value: 0x7f0c0067
+			public const int Sensor2_Checkbox = 2131492967;
+			
+			// aapt resource value: 0x7f0c006b
+			public const int Toggle_SensorRefresh = 2131492971;
 			
 			// aapt resource value: 0x7f0c0058
 			public const int action0 = 2131492952;
@@ -1471,8 +1477,8 @@ namespace Domotica
 			// aapt resource value: 0x7f0c0036
 			public const int buttonPanel = 2131492918;
 			
-			// aapt resource value: 0x7f0c006f
-			public const int buttonRefresh = 2131492975;
+			// aapt resource value: 0x7f0c0071
+			public const int buttonRefresh = 2131492977;
 			
 			// aapt resource value: 0x7f0c0059
 			public const int cancel_action = 2131492953;
@@ -1642,11 +1648,11 @@ namespace Domotica
 			// aapt resource value: 0x7f0c004e
 			public const int select_dialog_listview = 2131492942;
 			
-			// aapt resource value: 0x7f0c0066
-			public const int sensor1Text = 2131492966;
+			// aapt resource value: 0x7f0c0068
+			public const int sensor1Text = 2131492968;
 			
-			// aapt resource value: 0x7f0c0067
-			public const int sensor2Text = 2131492967;
+			// aapt resource value: 0x7f0c0069
+			public const int sensor2Text = 2131492969;
 			
 			// aapt resource value: 0x7f0c0039
 			public const int shortcut = 2131492921;

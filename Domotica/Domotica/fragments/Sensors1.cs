@@ -21,6 +21,10 @@ namespace Domotica
 		TextView Sensor1;
 		TextView Sensor2;
 
+		//Checkboxes
+		CheckBox Sensor1Check;
+		CheckBox Sensor2Check;
+
 		//Interactive elements
 		Button refreshButton;
 		Switch refreshToggleSwitch;
@@ -52,6 +56,8 @@ namespace Domotica
 			//Sersor Textviews and buttons found in the layout
 			Sensor1 = view.FindViewById<TextView> (Resource.Id.sensor1Text);
 			Sensor2 = view.FindViewById<TextView> (Resource.Id.sensor2Text);
+			Sensor1Check = view.FindViewById<CheckBox> (Resource.Id.Sensor1_Checkbox);
+			Sensor2Check = view.FindViewById<CheckBox> (Resource.Id.Sensor2_Checkbox);
 			refreshButton = view.FindViewById<Button> (Resource.Id.Refresh_Sensors);
 			refreshToggleSwitch = view.FindViewById<Switch> (Resource.Id.Toggle_SensorRefresh);
 
@@ -90,8 +96,14 @@ namespace Domotica
 				{
 					//set textviews to recieved sensorvalues
 					Activity.RunOnUiThread (() => {
-						Sensor1.Text = tempString [0];
-						Sensor2.Text = tempString [1];
+						if(Sensor1Check.Checked)
+							Sensor1.Text = tempString [0];
+						else 
+							Sensor1.Text = " ";
+						if(Sensor2Check.Checked)
+							Sensor2.Text = tempString [1];
+						else
+							Sensor2.Text = " ";
 					});
 				}
 			} else
@@ -111,8 +123,14 @@ namespace Domotica
 				if (tempString.Length == 2)
 				{
 					Activity.RunOnUiThread (() => {
-						Sensor1.Text = tempString [0];
-						Sensor2.Text = tempString [1];
+						if(Sensor1Check.Checked)
+							Sensor1.Text = tempString [0];
+						else 
+							Sensor1.Text = " ";
+						if(Sensor2Check.Checked)
+							Sensor2.Text = tempString [1];
+						else
+							Sensor2.Text = " ";
 					});
 				}
 			}
