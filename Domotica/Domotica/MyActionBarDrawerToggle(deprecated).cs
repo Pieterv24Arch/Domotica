@@ -1,4 +1,9 @@
-﻿using System;
+﻿//This class is for easier customization of the actions performed in regards to the actionbardrawertoggle
+
+//This class is currently not used
+
+
+/*using System;
 using SupportAtionBarDrawerToggle = Android.Support.V7.App.ActionBarDrawerToggle;
 using Android.Support.V7.App;
 using Android.Support.V4.Widget;
@@ -33,5 +38,5 @@ namespace Domotica
 			base.OnDrawerSlide (drawerView, slideOffset);
 		}
 	}
-}
+}*/
 

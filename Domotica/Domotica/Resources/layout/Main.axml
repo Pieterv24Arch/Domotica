@@ -22,11 +22,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
     <!-- The Main Content View -->
+    <!-- the framelayout is used to show fragments in -->
         <FrameLayout
             android:id="@+id/fragmentContainter"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
-    <!-- Drawer List -->
+    <!-- List of Items in the navigaton drawer -->
         <ListView
             android:id="@+id/left_drawer"
             android:layout_width="240dp"

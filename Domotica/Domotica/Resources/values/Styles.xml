@@ -1,4 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- This file is used to define the theme of the app -->
+
 <resources>
 	<style name="MyTheme" parent="Theme.AppCompat.Light.NoActionBar">
 		<item name="colorPrimary">@color/my_primary</item>

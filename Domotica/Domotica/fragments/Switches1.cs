@@ -27,6 +27,7 @@ namespace Domotica
 		private List<Switch> _Adapters;
 		private bool backgroundChange = false;
 
+		//create connect object using the connectionprotocol class
 		private ConnectionProtocol connect = new ConnectionProtocol();
 
 		public override void OnCreate (Bundle savedInstanceState)
@@ -41,23 +42,26 @@ namespace Domotica
 			// Use this to return your custom view for this Fragment
 			// return inflater.Inflate(Resource.Layout.YourFragment, container, false);
 
+			//inflate layout of switches1
 			View view = inflater.Inflate (Resource.Layout.Switches1, container, false);
 
-			//Assing ID's
+			//Assign variables to the switches and button on the layout
 			Adapter1 = view.FindViewById<Switch>(Resource.Id.Ch1);
 			Adapter2 = view.FindViewById<Switch>(Resource.Id.Ch2);
 			Adapter3 = view.FindViewById<Switch>(Resource.Id.Ch3);
 			Adapter4 = view.FindViewById<Switch>(Resource.Id.Ch4);
 			Adapter5 = view.FindViewById<Switch>(Resource.Id.ChAll);
 			buttonRefresh = view.FindViewById<Button> (Resource.Id.buttonRefresh);
+			//Add all switches to a list
 			_Adapters = new List<Switch>() { Adapter1, Adapter2, Adapter3, Adapter4, Adapter5 };
 
 			//Switches Event Handler
+			//Actions to perform if a switch is toggled
 			Adapter1.CheckedChange += delegate(object sender, CompoundButton.CheckedChangeEventArgs e) 
 			{
-				if (!backgroundChange)
+				if (!backgroundChange)//check if statechange is comming from user
 					ThreadPool.QueueUserWorkItem (o => switchControl (1, e.IsChecked));
-				if(!GlobalVariables.IpAvailable)
+				if(!GlobalVariables.IpAvailable)//set switch to false if no connection is available
 					Adapter1.Checked = false;
 			};
 			Adapter2.CheckedChange += delegate(object sender, CompoundButton.CheckedChangeEventArgs e) 
@@ -91,18 +95,22 @@ namespace Domotica
 			buttonRefresh.Click += delegate {
 				if(GlobalVariables.IpAvailable)
 					ThreadPool.QueueUserWorkItem(o => checkSwitches());
+				else
+					noConnectionAlert();
 			};
 			return view;
 		}
 
-		//Switches Methods
+		//Send commands to toggle a switch to the arduino
 		public void switchControl(int switchNr, bool state)
 		{
 			if (GlobalVariables.IpAvailable)
 			{
+				//what switch should be toggled
 				switch (switchNr)
 				{
 					case 1:
+						//what command should be send to the arduino
 						connect.tell (state ? "Ch1ON" : "Ch1OFF");
 						break;
 					case 2:
@@ -118,20 +126,28 @@ namespace Domotica
 						connect.tell (state ? "ChAllON" : "ChAllOFF");
 						break;
 				}
+				//sync the state of the switches in the app with the state of the switches in the arduino
 				checkSwitches ();
 			} else
 			{
+				//if there is no connection give an alert
 				noConnectionAlert ();
 			}
 		}
 
+		//method that syncs the switches in the app with those in the arduino
 		public void checkSwitches()
 		{
+			//Check if there is a connection available
 			if (GlobalVariables.IpAvailable)
 			{
+				//instruct switches that this is a change made by the system(to prevent app from sending a command to the arduino agian as duplicate)
 				backgroundChange = true;
+				//ask arduino for the states of the switches and put them in an array, splitting them at the ','
 				string[] states = connect.ask ("States").Split (',');
+				//make list of bools
 				List<bool> boolStates = new List<bool> ();
+				//convert the strings in the states array to booleans and add them to the list of bools
 				foreach (string s in states)
 				{
 					if (s == "true")
@@ -139,6 +155,7 @@ namespace Domotica
 					else if (s == "false")
 						boolStates.Add (false);
 				}
+				//change states of the switches acoarding to the values in the bool array
 				if (boolStates.Count == 4)
 				{
 					Activity.RunOnUiThread (() => {
@@ -149,19 +166,24 @@ namespace Domotica
 								_Adapters [i].Checked = boolStates [i];
 							}
 						}
+						//check if all individual control switches are either true or false.
+						//if so then change state of the switch for all switches
 						if (boolStates.Contains (!boolStates [0]))
 							_Adapters [4].Checked = false;
 						else
 							_Adapters [4].Checked = boolStates [0];
+						//allow user to make changes agian
 						backgroundChange = false;
 					});
 				}
 			} else
 			{
+				//if no connection is found then show alert
 				noConnectionAlert ();
 			}
 		}
 
+		//no connection alert
 		public void noConnectionAlert()
 		{
 			AlertDialog.Builder alert = new AlertDialog.Builder (this.Activity);

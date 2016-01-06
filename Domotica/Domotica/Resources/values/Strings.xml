@@ -1,4 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Global string to be used in app -->
+
 <resources>
 	<string name="app_name">Domotica</string>
 	<string name="openDrawer">Drawer Open</string>

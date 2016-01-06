@@ -1953,9 +1953,6 @@ namespace Domotica
 			// aapt resource value: 0x7f06001b
 			public const int Mode = 2131099675;
 			
-			// aapt resource value: 0x7f06001e
-			public const int NoConnection = 2131099678;
-			
 			// aapt resource value: 0x7f060017
 			public const int Sensors1 = 2131099671;
 			

@@ -1,20 +1,33 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- This file is used to define global colors of the app -->
+
 <resources>
-	  <!--Primary Color-->
-  <color name="my_primary">#c62828</color>
-  <!--Statusbar Color-->
-  <color name="my_statusBarColor">#b71c1c</color>
-  <!--Accent Color-->
-  <color name="my_accent">#e57373</color>
-  <!--Color of the Primary text-->
-  <color name="my_textColorDark">#FFFFFF</color>
-  <color name="my_textColorLight">#000000</color>
-  <!--Background Color of the Fragments-->
-  <color name="my_windowBackground">#FFFFFF</color>
-  <!--Color of the menu-->
-  <color name="my_menuColor">#B71C1C</color>
-  <!--Color of the navigation bar-->
-  <color name="my_navBarColor">#FFFFFF</color>
-  <!--Color of the background of the app-->
-  <color name="my_BackgroundColor">#F5F5F5</color>
+	<!--Primary Color-->
+ 	<color name="my_primary">#c62828</color>
+
+  	<!--Statusbar Color-->
+  	<color name="my_statusBarColor">#b71c1c</color>
+
+  	<!--Accent Color-->
+  	<color name="my_accent">#e57373</color>
+
+  	<!--Color of the Primary text-->
+  	<!--Color of text with dark background -->
+  	<color name="my_textColorDark">#FFFFFF</color>
+  	<!--Color of text with light background -->
+  	<color name="my_textColorLight">#000000</color>
+
+  	<!--Background Color of the Fragments-->
+  	<color name="my_windowBackground">#FFFFFF</color>
+
+  	<!--Color of the navigation drawer-->
+  	<color name="my_menuColor">#B71C1C</color>
+
+  	<!--Color of the navigation bar-->
+  	<color name="my_navBarColor">#FFFFFF</color>
+
+  	<!--Color of the background of the app-->
+  	<color name="my_BackgroundColor">#F5F5F5</color>
+
 </resources>

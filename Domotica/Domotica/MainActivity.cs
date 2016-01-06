@@ -7,25 +7,37 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+//Using a SupportToolbar alias since another toolbar type already exists
 using SupportToolbar = Android.Support.V7.Widget.Toolbar;
+//Added external support libraries v4 & v7 for toolbar/navigation drawer
 using Android.Support.V7.App;
 using Android.Support.V4.Widget;
+//Using a SupportFragment alias since another fragment type already exists
 using SupportFragment = Android.Support.V4.App.Fragment;
-using System.Timers;
+//Using alias since actionbardrawertoggle type already exists
+using SupportActionBarDrawerToggle = Android.Support.V7.App.ActionBarDrawerToggle;
 
 namespace Domotica
 {
+	//ConfigurationChanges tells the app to not destroy it's view when orientation is changed. so preventing the app from reloading completeley every time the orientation is changed
 	[Activity (Label = "Domotica", MainLauncher = true, ConfigurationChanges = ( Android.Content.PM.ConfigChanges.Orientation |Android.Content.PM.ConfigChanges.ScreenSize ) ,Icon = "@mipmap/icon", Theme="@style/MyTheme")]
 	public class MainActivity : AppCompatActivity
 	{
 		//UI Variables
+		//Variable linking to the supporttoolbar from android.support.v7.widget.toolbar
 		private SupportToolbar mToolbar;
-		private MyActionBarDrawerToggle mDrawerToggle;
+		//Class for controling the toggle of the navigation drawer
+		private ActionBarDrawerToggle mDrawerToggle;
 		private DrawerLayout mDrawerLayout;
+		//List view that contains the items of the navigation drawer
 		private ListView mDrawer;
+		//Adaper for using an array of strings to populate the listview
 		private ArrayAdapter mAdapter;
+		//List for the strings that are to populate the listview
 		private List<string> mDrawerData;
+		//Keeps track of what fragment is currently shown
 		private SupportFragment mCurrentFragment;
+		//Fragments.
 		private Home mHome;
 		private Switches1 mSwitches1;
 		private Switches2 mSwitches2;
@@ -33,6 +45,8 @@ namespace Domotica
 		private Sensors2 mSensors2;
 		private Connection1 mConnection1;
 		private Mode1 mMode1;
+		//Stack to keep track of what fragments have been shown. 
+		//Is used for the back button
 		private Stack<SupportFragment> mStackFragment;
 
 		protected override void OnCreate (Bundle savedInstanceState)
@@ -48,7 +62,7 @@ namespace Domotica
 			mDrawer = FindViewById<ListView> (Resource.Id.left_drawer);
 
 
-			//Fragments
+			//Create fragments
 			mHome = new Home();
 			mSwitches1 = new Switches1 ();
 			mSwitches2 = new Switches2 ();
@@ -56,6 +70,7 @@ namespace Domotica
 			mSensors2 = new Sensors2 ();
 			mConnection1 = new Connection1 ();
 			mMode1 = new Mode1 ();
+			//create stack
 			mStackFragment = new Stack<SupportFragment> ();
 
 			//Create Toolbar
@@ -63,7 +78,10 @@ namespace Domotica
 			SupportActionBar.SetHomeButtonEnabled(true);
 			SupportActionBar.SetDisplayHomeAsUpEnabled(true);﻿
 
-			//Create All Fragments
+			//Create All Fragments and hide them
+			//Hiding is to later be able to call the fragment to the front
+			//They are basicly all hiding in the background till you call them
+			//These stack. so the fragment on the bottom of the stack is added first
 			var trans = SupportFragmentManager.BeginTransaction ();
 
 			trans.Add (Resource.Id.fragmentContainter, mMode1, "Mode1");
@@ -88,25 +106,28 @@ namespace Domotica
 
 			trans.Commit ();
 
+			//Initial shown fragment is the Home fragment
 			mCurrentFragment = mHome;
 
-			//Set Data For the navigation Drawer
+			//Set Strings to populate the listview of the navigation drawer
 			mDrawerData = new List<string> () {"Home", "Switches", "Sensors", "Sensor Threshold", "Timers","Connection", "Modes"};
-			//get adapter to interpet list with data
+			//Set adaper to show these in the listview. The resource.layout.mytextview is the place that the adapter uses to create each list item
 			mAdapter = new ArrayAdapter<string> (this, Resource.Layout.mytextview, mDrawerData);
+			//set adapter drawer to the one just created
 			mDrawer.Adapter = mAdapter;
 			//Enable DrawerToggle
-			mDrawerToggle = new MyActionBarDrawerToggle (
+			mDrawerToggle = new ActionBarDrawerToggle (
 				this,
 				mDrawerLayout,
 				Resource.String.openDrawer,
 				Resource.String.closeDrawer
 			);
 
-			//Toggle DrawerToggle
+			//Set listener for the event of the drawertoggle being clicked
 			mDrawerLayout.SetDrawerListener (mDrawerToggle);
 			SupportActionBar.SetHomeButtonEnabled (true);
 			SupportActionBar.SetDisplayShowTitleEnabled (true);
+			//sync state of drawer with the drawertoggle
 			mDrawerToggle.SyncState ();
 
 			//if this is the frist time the view is created set title on the toolbar to Home since this this the fragment you're greeted with
@@ -119,7 +140,6 @@ namespace Domotica
 			}
 
 			//Event handlers
-			//UI Event Handler
 			//if DrawerItem is selected change view and Title on the toolbar acoardingly
 			mDrawer.ItemClick += (object sender, AdapterView.ItemClickEventArgs e) => 
 			{
@@ -154,9 +174,8 @@ namespace Domotica
 						SupportActionBar.SetTitle (Resource.String.Mode);
 						break;
 				}
-			}; 
+			};
 		}
-
 
 		//Get input from drawertoggle
 		public override bool OnOptionsItemSelected (IMenuItem item)
@@ -165,14 +184,14 @@ namespace Domotica
 			return base.OnOptionsItemSelected (item);
 		}
 
-		//Synch drawertoggle with drawerstate
+		//Synch drawertoggle with drawerstate before creation
 		protected override void OnPostCreate (Bundle savedInstanceState)
 		{
 			base.OnPostCreate (savedInstanceState);
 			mDrawerToggle.SyncState ();
 		}
 
-		//if back button is pressed get last seen fragment
+		//if back button is pressed get last seen fragment from the stack
 		public override void OnBackPressed ()
 		{
 			if (SupportFragmentManager.BackStackEntryCount > 0) 
@@ -186,7 +205,7 @@ namespace Domotica
 			}
 		}
 
-		//Inflate MenuIcons on the Toolbar
+		//Set other icons on the toolbar(Currently unused)
 		/*public override bool OnCreateOptionsMenu (IMenu menu)
 		{
 			MenuInflater.Inflate (Resource.Menu.action_menu, menu);

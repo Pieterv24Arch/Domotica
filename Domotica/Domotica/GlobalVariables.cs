@@ -1,5 +1,6 @@
 ﻿using System;
 
+//This class serves the purpose of containing variables needed everywhere in the project.
 namespace Domotica
 {
 	public static class GlobalVariables

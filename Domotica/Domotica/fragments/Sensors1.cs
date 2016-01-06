@@ -44,25 +44,32 @@ namespace Domotica
 			// Use this to return your custom view for this Fragment
 			// return inflater.Inflate(Resource.Layout.YourFragment, container, false);
 
+			//Inflate the Sensors1 layout
 			View view = inflater.Inflate (Resource.Layout.Sensors1, container, false);
 
 
 
-			//Instantiate Textviews
+			//Sersor Textviews and buttons found in the layout
 			Sensor1 = view.FindViewById<TextView> (Resource.Id.sensor1Text);
 			Sensor2 = view.FindViewById<TextView> (Resource.Id.sensor2Text);
 			refreshButton = view.FindViewById<Button> (Resource.Id.Refresh_Sensors);
 			refreshToggleSwitch = view.FindViewById<Switch> (Resource.Id.Toggle_SensorRefresh);
 
+
+			//get values if button is pressed
 			refreshButton.Click += delegate {
 				getValues();
 			};
 
+			//Start/Stop timer if switch is toggled
 			refreshToggleSwitch.CheckedChange += delegate(object sender, CompoundButton.CheckedChangeEventArgs e) {
+				//if ip is available enable or disable timer
 				if(GlobalVariables.IpAvailable)
 					mTimer.Enabled = e.IsChecked;
+				//else disable timer(if running), set toggle to false and show alert that no connection is available
 				else
 				{
+					mTimer.Enabled = false;
 					refreshToggleSwitch.Checked = false;
 					noConnectionAlert();
 				}
@@ -71,15 +78,17 @@ namespace Domotica
 			return view;
 		}
 
+		//Method for getting sensorValues for buttonPress
 		public void getValues()
 		{
 			if (GlobalVariables.IpAvailable)
 			{
-				Log.Debug ("myApp", "getValues");
+				//get string with data and split it at the ,
 				string[] tempString = connect.ask ("getVal").Split (',');
-				Log.Debug ("myApp", tempString [0] + ", " + tempString [1]);
+				//check if received data matches preset
 				if (tempString.Length == 2)
 				{
+					//set textviews to recieved sensorvalues
 					Activity.RunOnUiThread (() => {
 						Sensor1.Text = tempString [0];
 						Sensor2.Text = tempString [1];
@@ -87,17 +96,18 @@ namespace Domotica
 				}
 			} else
 			{
+				//if no connection is detected give a noconnection allert
 				noConnectionAlert ();
 			}
 		}
 
+
+		//does the same as the method above but is called by the timer
 		public void getValues(object sender, ElapsedEventArgs e)
 		{
 			if (GlobalVariables.IpAvailable)
 			{
-				Log.Debug ("myApp", "getValues");
 				string[] tempString = connect.ask ("getVal").Split (',');
-				Log.Debug ("myApp", tempString [0] + ", " + tempString [1]);
 				if (tempString.Length == 2)
 				{
 					Activity.RunOnUiThread (() => {
@@ -105,11 +115,10 @@ namespace Domotica
 						Sensor2.Text = tempString [1];
 					});
 				}
-			} else
-			{
-				noConnectionAlert ();
 			}
 		}
+
+		//Show alert for no connection detected
 		public void noConnectionAlert()
 		{
 			AlertDialog.Builder alert = new AlertDialog.Builder (this.Activity);

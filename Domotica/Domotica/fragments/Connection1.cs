@@ -1,4 +1,6 @@
-﻿
+﻿//This class extends the fragment class
+
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,8 +36,9 @@ namespace Domotica
 			// Use this to return your custom view for this Fragment
 			// return inflater.Inflate(Resource.Layout.YourFragment, container, false);
 
+			//Inflate the layout of the Connetion fragment
 			View view = inflater.Inflate (Resource.Layout.Connection, container, false);
-			//Connection Items
+			//Connection Layout items
 			mConnectionButton = view.FindViewById<Button>(Resource.Id.ConnectionButton);
 			mIpField = view.FindViewById<EditText>(Resource.Id.editTextIP);
 			mPortField = view.FindViewById<EditText>(Resource.Id.editTextPort);
@@ -44,10 +47,14 @@ namespace Domotica
 			//Connection Event Handlers
 			mConnectionButton.Click += delegate {
 				int tempIntContainer;
+				//set Global IpAddress variable equal to the text in the ipField
 				GlobalVariables.IPAddress = mIpField.Text;
+				//Check if the portnumber is in fact a number
 				int.TryParse(mPortField.Text, out tempIntContainer);
 				GlobalVariables.PortAddress = tempIntContainer;
+				//show text refreshing... in the fragment
 				mConnection_Text.Text = "Refreshing...";
+				//Que connectiontest and updating text accoardingly
 				ThreadPool.QueueUserWorkItem(args => {
 					connect.TestConnection(mConnection_Text);
 					Activity.RunOnUiThread(() => {
