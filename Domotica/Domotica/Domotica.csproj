@@ -63,6 +63,8 @@
     <Compile Include="GlobalVariables.cs" />
     <Compile Include="fragments\Home.cs" />
     <Compile Include="MyActionBarDrawerToggle%28deprecated%29.cs" />
+    <Compile Include="Adapters\SensorListAdapter.cs" />
+    <Compile Include="Adapters\ListItems\SensorItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -94,13 +96,16 @@
     <AndroidResource Include="Resources\anim\second_slide_out.xml" />
     <AndroidResource Include="Resources\menu\action_menu.xml" />
     <AndroidResource Include="Resources\drawable\ic_add_white_48dp.png" />
-    <AndroidResource Include="Resources\drawable\Circle.xml" />
+    <AndroidResource Include="Resources\layout\SensorItemView.axml" />
+    <AndroidResource Include="Resources\layout\AddSensorLayout.axml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />
     <Folder Include="fragments\" />
     <Folder Include="Resources\anim\" />
     <Folder Include="Resources\menu\" />
+    <Folder Include="Adapters\" />
+    <Folder Include="Adapters\ListItems\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <ItemGroup>

@@ -75,6 +75,7 @@ namespace Domotica
 
 			//Create Toolbar
 			SetSupportActionBar (mToolbar);
+
 			SupportActionBar.SetHomeButtonEnabled(true);
 			SupportActionBar.SetDisplayHomeAsUpEnabled(true);﻿
 
@@ -139,42 +140,10 @@ namespace Domotica
 				SupportActionBar.SetTitle (Resource.String.Home);	
 			}
 
-			//Event handlers
-			//if DrawerItem is selected change view and Title on the toolbar acoardingly
-			mDrawer.ItemClick += (object sender, AdapterView.ItemClickEventArgs e) => 
-			{
-				switch(e.Position)
-				{
-					case 0:
-						changeFragment(mHome);
-						SupportActionBar.SetTitle (Resource.String.Home);
-						break;
-					case 1:
-						changeFragment(mSwitches1);
-						SupportActionBar.SetTitle (Resource.String.Switches1);	
-						break;
-					case 2:
-						changeFragment(mSensors1);
-						SupportActionBar.SetTitle (Resource.String.Sensors1);	
-						break;
-					case 3:
-						changeFragment(mSensors2);
-						SupportActionBar.SetTitle (Resource.String.Sensors2);	
-						break;
-					case 4:
-						changeFragment(mSwitches2);
-						SupportActionBar.SetTitle (Resource.String.Switches2);
-						break;
-					case 5:
-						changeFragment(mConnection1);
-						SupportActionBar.SetTitle (Resource.String.Connection);
-						break;
-					case 6:
-						changeFragment(mMode1);
-						SupportActionBar.SetTitle (Resource.String.Mode);
-						break;
-				}
-			};
+			//Event handler
+			//When event mDrawer.ItemClick is executed. run method MDrawer_ItemClick
+			mDrawer.ItemClick += MDrawer_ItemClick;
+
 		}
 
 		//Get input from drawertoggle
@@ -205,13 +174,42 @@ namespace Domotica
 			}
 		}
 
-		//Set other icons on the toolbar(Currently unused)
-		/*public override bool OnCreateOptionsMenu (IMenu menu)
+		//Method to be executed when an item in the drawer is clicked
+		void MDrawer_ItemClick (object sender, AdapterView.ItemClickEventArgs e)
 		{
-			MenuInflater.Inflate (Resource.Menu.action_menu, menu);
-			return base.OnCreateOptionsMenu (menu);
-		}*/
-
+			//get position of the item that is clicked and change fragment and title accoardingly
+			switch(e.Position)
+			{
+				case 0:
+					changeFragment(mHome);
+					SupportActionBar.SetTitle (Resource.String.Home);
+					break;
+				case 1:
+					changeFragment(mSwitches1);
+					SupportActionBar.SetTitle (Resource.String.Switches1);	
+					break;
+				case 2:
+					changeFragment(mSensors1);
+					SupportActionBar.SetTitle (Resource.String.Sensors1);	
+					break;
+				case 3:
+					changeFragment(mSensors2);
+					SupportActionBar.SetTitle (Resource.String.Sensors2);	
+					break;
+				case 4:
+					changeFragment(mSwitches2);
+					SupportActionBar.SetTitle (Resource.String.Switches2);
+					break;
+				case 5:
+					changeFragment(mConnection1);
+					SupportActionBar.SetTitle (Resource.String.Connection);
+					break;
+				case 6:
+					changeFragment(mMode1);
+					SupportActionBar.SetTitle (Resource.String.Mode);
+					break;
+			}	
+		}
 
 		//Change Shown fragment and hide current
 		private void changeFragment(SupportFragment fragment1)

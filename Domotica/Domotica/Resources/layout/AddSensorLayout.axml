@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:minWidth="300dp">
+    <TextView
+        android:id="@+id/nonsensetext1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sensor"
+        android:layout_marginLeft="10dp" />
+    <Spinner
+        android:layout_below="@id/nonsensetext1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/SensornameSpinner"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:entries="@array/SensorNames" />
+    <Spinner
+        android:layout_below="@id/SensornameSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/SensorRelation"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:entries="@array/Relations" />
+    <TextView
+        android:layout_below="@id/SensorRelation"
+        android:id="@+id/nonsensetext2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Value"
+        android:layout_marginLeft="10dp" />
+    <EditText
+        android:layout_below="@id/nonsensetext2"
+        android:id="@+id/SensorValue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="phone"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp" />
+    <TextView
+        android:layout_below="@id/SensorValue"
+        android:id="@+id/nonsensetext3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Switch to Toggle"
+        android:layout_marginLeft="10dp" />
+    <Spinner
+        android:layout_below="@id/nonsensetext3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/SwitchNameSpinner"
+        android:layout_marginBottom="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:entries="@array/Switches" />
+</RelativeLayout>

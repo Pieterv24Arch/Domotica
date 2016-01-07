@@ -75,18 +75,6 @@ namespace DomoticaApp
             }
         }
 
-        public bool TestConnection(string ipaddress)
-        {
-            try
-            {
-                open(ipaddress, port);
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-        }
         public Socket open(string ipaddress, int portnr)
         {
             Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);

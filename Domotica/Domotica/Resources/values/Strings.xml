@@ -15,4 +15,20 @@
 	<string name="Mode">Modes</string>
 	<string name="sensorName1">Temperature Sensor</string>
 	<string name="sensorName2">Light Sensor</string>
+	<string name="sensorShortClick">Hold Items to see options</string>
+	<string-array name="SensorNames">
+		<item>Temperature Sensor</item>
+		<item>Light Sensor</item>
+	</string-array>
+	<string-array name="Relations">
+		<item>&lt;</item>
+		<item>&gt;</item>
+	</string-array>
+	<string-array name="Switches">
+		<item>Switch 1</item>
+		<item>Switch 2</item>
+		<item>Switch 3</item>
+		<item>Switch 4</item>
+		<item>All Switches</item>
+	</string-array>
 </resources>
