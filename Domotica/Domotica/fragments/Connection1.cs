@@ -20,9 +20,15 @@ namespace Domotica
 	{
 		//Connection Variables
 		private Button mConnectionButton;
-		private EditText mIpField;
+		private EditText mIpField1;
+		private EditText mIpField2;
+		private EditText mIpField3;
+		private EditText mIpField4;
 		private EditText mPortField;
 		private TextView mConnection_Text;
+
+		List<EditText> ipFields;
+
 		private ConnectionProtocol connect = new ConnectionProtocol();
 
 		public override void OnCreate (Bundle savedInstanceState)
@@ -40,15 +46,30 @@ namespace Domotica
 			View view = inflater.Inflate (Resource.Layout.Connection, container, false);
 			//Connection Layout items
 			mConnectionButton = view.FindViewById<Button>(Resource.Id.ConnectionButton);
-			mIpField = view.FindViewById<EditText>(Resource.Id.editTextIP);
+			//Elements of the ip text fields. ip is made out of the 4 edit text fields
+			mIpField1 = view.FindViewById<EditText>(Resource.Id.editTextIP1);
+			mIpField2 = view.FindViewById<EditText>(Resource.Id.editTextIP2);
+			mIpField3 = view.FindViewById<EditText>(Resource.Id.editTextIP3);
+			mIpField4 = view.FindViewById<EditText>(Resource.Id.editTextIP4);
+			//list of ipfield for easy checking
+			ipFields = new List<EditText>(){mIpField1, mIpField2, mIpField3, mIpField4};
+
 			mPortField = view.FindViewById<EditText>(Resource.Id.editTextPort);
 			mConnection_Text = view.FindViewById<TextView>(Resource.Id.Connection_Text);
 
 			//Connection Event Handlers
 			mConnectionButton.Click += delegate {
 				int tempIntContainer;
+				//Check if all field of the ip are populated
+				for(int i = 0; i < ipFields.Count; i++)
+				{
+					if(ipFields[i].Text == "")
+					{
+						ipFields[i].Text = "0";
+					}
+				}
 				//set Global IpAddress variable equal to the text in the ipField
-				GlobalVariables.IPAddress = mIpField.Text;
+				GlobalVariables.IPAddress = string.Format("{0}.{1}.{2}.{3}",mIpField1.Text, mIpField2.Text, mIpField3.Text, mIpField4.Text);
 				//Check if the portnumber is in fact a number
 				int.TryParse(mPortField.Text, out tempIntContainer);
 				GlobalVariables.PortAddress = tempIntContainer;

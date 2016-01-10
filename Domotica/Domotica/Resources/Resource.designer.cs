@@ -1400,56 +1400,56 @@ namespace Domotica
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f0c007e
-			public const int Add_Button = 2131492990;
-			
-			// aapt resource value: 0x7f0c0078
-			public const int Ch1 = 2131492984;
-			
-			// aapt resource value: 0x7f0c0079
-			public const int Ch2 = 2131492985;
-			
-			// aapt resource value: 0x7f0c007a
-			public const int Ch3 = 2131492986;
+			// aapt resource value: 0x7f0c0081
+			public const int Add_Button = 2131492993;
 			
 			// aapt resource value: 0x7f0c007b
-			public const int Ch4 = 2131492987;
+			public const int Ch1 = 2131492987;
 			
 			// aapt resource value: 0x7f0c007c
-			public const int ChAll = 2131492988;
+			public const int Ch2 = 2131492988;
 			
-			// aapt resource value: 0x7f0c0059
-			public const int ConnectionButton = 2131492953;
+			// aapt resource value: 0x7f0c007d
+			public const int Ch3 = 2131492989;
+			
+			// aapt resource value: 0x7f0c007e
+			public const int Ch4 = 2131492990;
+			
+			// aapt resource value: 0x7f0c007f
+			public const int ChAll = 2131492991;
+			
+			// aapt resource value: 0x7f0c005c
+			public const int ConnectionButton = 2131492956;
 			
 			// aapt resource value: 0x7f0c0056
 			public const int Connection_Text = 2131492950;
 			
+			// aapt resource value: 0x7f0c0078
+			public const int Refresh_Sensors = 2131492984;
+			
+			// aapt resource value: 0x7f0c0074
+			public const int Sensor1_Checkbox = 2131492980;
+			
 			// aapt resource value: 0x7f0c0075
-			public const int Refresh_Sensors = 2131492981;
+			public const int Sensor2_Checkbox = 2131492981;
 			
-			// aapt resource value: 0x7f0c0071
-			public const int Sensor1_Checkbox = 2131492977;
-			
-			// aapt resource value: 0x7f0c0072
-			public const int Sensor2_Checkbox = 2131492978;
-			
-			// aapt resource value: 0x7f0c006c
-			public const int SensorName = 2131492972;
+			// aapt resource value: 0x7f0c006f
+			public const int SensorName = 2131492975;
 			
 			// aapt resource value: 0x7f0c0051
 			public const int SensorRelation = 2131492945;
 			
-			// aapt resource value: 0x7f0c006f
-			public const int SensorSwitchControl = 2131492975;
+			// aapt resource value: 0x7f0c0072
+			public const int SensorSwitchControl = 2131492978;
 			
-			// aapt resource value: 0x7f0c006e
-			public const int SensorThreshold = 2131492974;
+			// aapt resource value: 0x7f0c0071
+			public const int SensorThreshold = 2131492977;
 			
-			// aapt resource value: 0x7f0c0077
-			public const int SensorThresholdList = 2131492983;
+			// aapt resource value: 0x7f0c007a
+			public const int SensorThresholdList = 2131492986;
 			
-			// aapt resource value: 0x7f0c006d
-			public const int SensorThresholdRelation = 2131492973;
+			// aapt resource value: 0x7f0c0070
+			public const int SensorThresholdRelation = 2131492976;
 			
 			// aapt resource value: 0x7f0c0053
 			public const int SensorValue = 2131492947;
@@ -1460,11 +1460,11 @@ namespace Domotica
 			// aapt resource value: 0x7f0c0055
 			public const int SwitchNameSpinner = 2131492949;
 			
-			// aapt resource value: 0x7f0c0076
-			public const int Toggle_SensorRefresh = 2131492982;
+			// aapt resource value: 0x7f0c0079
+			public const int Toggle_SensorRefresh = 2131492985;
 			
-			// aapt resource value: 0x7f0c005f
-			public const int action0 = 2131492959;
+			// aapt resource value: 0x7f0c0062
+			public const int action0 = 2131492962;
 			
 			// aapt resource value: 0x7f0c0040
 			public const int action_bar = 2131492928;
@@ -1490,8 +1490,8 @@ namespace Domotica
 			// aapt resource value: 0x7f0c0041
 			public const int action_context_bar = 2131492929;
 			
-			// aapt resource value: 0x7f0c0063
-			public const int action_divider = 2131492963;
+			// aapt resource value: 0x7f0c0066
+			public const int action_divider = 2131492966;
 			
 			// aapt resource value: 0x7f0c0002
 			public const int action_menu_divider = 2131492866;
@@ -1523,17 +1523,17 @@ namespace Domotica
 			// aapt resource value: 0x7f0c0036
 			public const int buttonPanel = 2131492918;
 			
-			// aapt resource value: 0x7f0c007d
-			public const int buttonRefresh = 2131492989;
+			// aapt resource value: 0x7f0c0080
+			public const int buttonRefresh = 2131492992;
 			
-			// aapt resource value: 0x7f0c0060
-			public const int cancel_action = 2131492960;
+			// aapt resource value: 0x7f0c0063
+			public const int cancel_action = 2131492963;
 			
 			// aapt resource value: 0x7f0c0038
 			public const int checkbox = 2131492920;
 			
-			// aapt resource value: 0x7f0c0066
-			public const int chronometer = 2131492966;
+			// aapt resource value: 0x7f0c0069
+			public const int chronometer = 2131492969;
 			
 			// aapt resource value: 0x7f0c0017
 			public const int collapseActionView = 2131492887;
@@ -1559,17 +1559,26 @@ namespace Domotica
 			// aapt resource value: 0x7f0c000c
 			public const int disableHome = 2131492876;
 			
-			// aapt resource value: 0x7f0c005b
-			public const int drawer_layout = 2131492955;
+			// aapt resource value: 0x7f0c005e
+			public const int drawer_layout = 2131492958;
 			
 			// aapt resource value: 0x7f0c001c
 			public const int dropdown = 2131492892;
 			
 			// aapt resource value: 0x7f0c0057
-			public const int editTextIP = 2131492951;
+			public const int editTextIP1 = 2131492951;
 			
 			// aapt resource value: 0x7f0c0058
-			public const int editTextPort = 2131492952;
+			public const int editTextIP2 = 2131492952;
+			
+			// aapt resource value: 0x7f0c0059
+			public const int editTextIP3 = 2131492953;
+			
+			// aapt resource value: 0x7f0c005a
+			public const int editTextIP4 = 2131492954;
+			
+			// aapt resource value: 0x7f0c005b
+			public const int editTextPort = 2131492955;
 			
 			// aapt resource value: 0x7f0c0042
 			public const int edit_query = 2131492930;
@@ -1577,8 +1586,8 @@ namespace Domotica
 			// aapt resource value: 0x7f0c0014
 			public const int end = 2131492884;
 			
-			// aapt resource value: 0x7f0c006b
-			public const int end_padder = 2131492971;
+			// aapt resource value: 0x7f0c006e
+			public const int end_padder = 2131492974;
 			
 			// aapt resource value: 0x7f0c0027
 			public const int expand_activities_button = 2131492903;
@@ -1586,11 +1595,11 @@ namespace Domotica
 			// aapt resource value: 0x7f0c0037
 			public const int expanded_menu = 2131492919;
 			
-			// aapt resource value: 0x7f0c005c
-			public const int fragmentContainter = 2131492956;
+			// aapt resource value: 0x7f0c005f
+			public const int fragmentContainter = 2131492959;
 			
-			// aapt resource value: 0x7f0c0070
-			public const int gridLayout1 = 2131492976;
+			// aapt resource value: 0x7f0c0073
+			public const int gridLayout1 = 2131492979;
 			
 			// aapt resource value: 0x7f0c0004
 			public const int home = 2131492868;
@@ -1607,17 +1616,17 @@ namespace Domotica
 			// aapt resource value: 0x7f0c0028
 			public const int image = 2131492904;
 			
-			// aapt resource value: 0x7f0c006a
-			public const int info = 2131492970;
+			// aapt resource value: 0x7f0c006d
+			public const int info = 2131492973;
 			
-			// aapt resource value: 0x7f0c005d
-			public const int left_drawer = 2131492957;
+			// aapt resource value: 0x7f0c0060
+			public const int left_drawer = 2131492960;
 			
-			// aapt resource value: 0x7f0c0064
-			public const int line1 = 2131492964;
+			// aapt resource value: 0x7f0c0067
+			public const int line1 = 2131492967;
 			
-			// aapt resource value: 0x7f0c0068
-			public const int line3 = 2131492968;
+			// aapt resource value: 0x7f0c006b
+			public const int line3 = 2131492971;
 			
 			// aapt resource value: 0x7f0c0009
 			public const int listMode = 2131492873;
@@ -1625,8 +1634,8 @@ namespace Domotica
 			// aapt resource value: 0x7f0c002a
 			public const int list_item = 2131492906;
 			
-			// aapt resource value: 0x7f0c0062
-			public const int media_actions = 2131492962;
+			// aapt resource value: 0x7f0c0065
+			public const int media_actions = 2131492965;
 			
 			// aapt resource value: 0x7f0c0015
 			public const int middle = 2131492885;
@@ -1703,11 +1712,11 @@ namespace Domotica
 			// aapt resource value: 0x7f0c004e
 			public const int select_dialog_listview = 2131492942;
 			
-			// aapt resource value: 0x7f0c0073
-			public const int sensor1Text = 2131492979;
+			// aapt resource value: 0x7f0c0076
+			public const int sensor1Text = 2131492982;
 			
-			// aapt resource value: 0x7f0c0074
-			public const int sensor2Text = 2131492980;
+			// aapt resource value: 0x7f0c0077
+			public const int sensor2Text = 2131492983;
 			
 			// aapt resource value: 0x7f0c0039
 			public const int shortcut = 2131492921;
@@ -1733,8 +1742,8 @@ namespace Domotica
 			// aapt resource value: 0x7f0c0022
 			public const int src_over = 2131492898;
 			
-			// aapt resource value: 0x7f0c0061
-			public const int status_bar_latest_event_content = 2131492961;
+			// aapt resource value: 0x7f0c0064
+			public const int status_bar_latest_event_content = 2131492964;
 			
 			// aapt resource value: 0x7f0c004b
 			public const int submit_area = 2131492939;
@@ -1742,17 +1751,17 @@ namespace Domotica
 			// aapt resource value: 0x7f0c000b
 			public const int tabMode = 2131492875;
 			
-			// aapt resource value: 0x7f0c0069
-			public const int text = 2131492969;
+			// aapt resource value: 0x7f0c006c
+			public const int text = 2131492972;
 			
-			// aapt resource value: 0x7f0c0067
-			public const int text2 = 2131492967;
+			// aapt resource value: 0x7f0c006a
+			public const int text2 = 2131492970;
 			
 			// aapt resource value: 0x7f0c0033
 			public const int textSpacerNoButtons = 2131492915;
 			
-			// aapt resource value: 0x7f0c0065
-			public const int time = 2131492965;
+			// aapt resource value: 0x7f0c0068
+			public const int time = 2131492968;
 			
 			// aapt resource value: 0x7f0c002c
 			public const int title = 2131492908;
@@ -1760,14 +1769,14 @@ namespace Domotica
 			// aapt resource value: 0x7f0c002f
 			public const int title_template = 2131492911;
 			
-			// aapt resource value: 0x7f0c005a
-			public const int toolbar = 2131492954;
+			// aapt resource value: 0x7f0c005d
+			public const int toolbar = 2131492957;
 			
 			// aapt resource value: 0x7f0c002e
 			public const int topPanel = 2131492910;
 			
-			// aapt resource value: 0x7f0c005e
-			public const int tv = 2131492958;
+			// aapt resource value: 0x7f0c0061
+			public const int tv = 2131492961;
 			
 			// aapt resource value: 0x7f0c0008
 			public const int up = 2131492872;
