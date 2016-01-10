@@ -71,7 +71,9 @@ namespace Domotica
 			refreshToggleSwitch.CheckedChange += delegate(object sender, CompoundButton.CheckedChangeEventArgs e) {
 				//if ip is available enable or disable timer
 				if(GlobalVariables.IpAvailable)
+				{
 					mTimer.Enabled = e.IsChecked;
+				}
 				//else disable timer(if running), set toggle to false and show alert that no connection is available
 				else
 				{

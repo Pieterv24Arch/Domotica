@@ -23,9 +23,14 @@ namespace Domotica
 		//Result is written to global variable
 		public void TestConnection(TextView text)
 		{
-			Ping p = new Ping ();
-			PingReply reply = p.Send (GlobalVariables.IPAddress);
-			GlobalVariables.IpAvailable = (reply.Status == IPStatus.Success);
+			try {
+				Ping p = new Ping ();
+				PingReply reply = p.Send (GlobalVariables.IPAddress);
+				GlobalVariables.IpAvailable = (reply.Status == IPStatus.Success);
+			}
+			catch {
+				GlobalVariables.IpAvailable = false;
+			}
 		}
 
 		//Start socket connection

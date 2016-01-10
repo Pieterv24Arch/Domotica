@@ -55,6 +55,15 @@ namespace Domotica
 
 			mSensorName.Text = mItems [position].mSensorName;
 			mSensorThresholdRelation.Text = mItems [position].mRelation;
+			switch (mItems [position].mRelation)
+			{
+				case "Lower Then":
+					mSensorThresholdRelation.Text = "<";
+					break;
+				case "Greater Then":
+					mSensorThresholdRelation.Text = ">";
+					break;
+			}
 			mSensorThreshold.Text = Convert.ToString(mItems [position].mValue);
 			mSensorSwitchControl.Text = mItems [position].mSwitchIdentity;
 

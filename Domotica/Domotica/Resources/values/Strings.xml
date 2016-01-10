@@ -21,8 +21,8 @@
 		<item>Light Sensor</item>
 	</string-array>
 	<string-array name="Relations">
-		<item>&lt;</item>
-		<item>&gt;</item>
+		<item>Lower Then</item>
+		<item>Greater Then</item>
 	</string-array>
 	<string-array name="Switches">
 		<item>Switch 1</item>
