@@ -2,11 +2,11 @@
 #include <Ethernet.h>
 #include <SPI.h>
 
-#define tempPin   0
-#define lightPin  1 
+#define tempPin   1
+#define lightPin  0 
 
 byte mac[] = {0x40, 0x6e, 0x9f, 0x06, 0xe4, 0x7a};
-IPAddress ip(192, 168, 1, 10);
+IPAddress ip(192, 168, 4, 10);
 RCSwitch mySwitch = RCSwitch();
 EthernetServer server(32545);
 bool connected = false;
@@ -71,10 +71,15 @@ void loop() {
 
 void returnValues(EthernetClient client)
 {
-  //Serial.println(String(analogRead(tempPin) + "," + analogRead(lightPin)));
-  //client.print(String(analogRead(tempPin) + "," + analogRead(lightPin)));
-  Serial.println("1024,945");
-  client.print("1024,945");
+  int tempPinValue = analogRead(tempPin);
+  int lightPinValue = analogRead(lightPin);
+  String valueString = String(tempPinValue);
+  valueString = String(valueString + ",");
+  valueString = String(valueString + lightPinValue);
+  Serial.println(valueString);
+  client.print(valueString);
+  //Serial.println("1024,945");
+  //client.print("1024,945");
 }
 
 void setSwitch(int adapter, int state)
