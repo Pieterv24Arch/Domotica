@@ -65,6 +65,7 @@
     <Compile Include="MyActionBarDrawerToggle%28deprecated%29.cs" />
     <Compile Include="Adapters\SensorListAdapter.cs" />
     <Compile Include="Adapters\ListItems\SensorItem.cs" />
+    <Compile Include="fragments\FAQ.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -98,6 +99,7 @@
     <AndroidResource Include="Resources\drawable\ic_add_white_48dp.png" />
     <AndroidResource Include="Resources\layout\SensorItemView.axml" />
     <AndroidResource Include="Resources\layout\AddSensorLayout.axml" />
+    <AndroidResource Include="Resources\layout\FAQ.axml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />
