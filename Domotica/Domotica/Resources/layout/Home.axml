@@ -3,13 +3,13 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/my_windowBackground">
+    android:background="@color/my_windowBackground"
+    android:padding="5sp">
     <ScrollView
         android:minWidth="25px"
         android:minHeight="25px"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="5sp">
+        android:layout_height="match_parent">
         <TextView
             android:text="@string/HomeText"
             android:textAppearance="?android:attr/textAppearanceSmall"
