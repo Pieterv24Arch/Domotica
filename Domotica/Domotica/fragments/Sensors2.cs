@@ -299,7 +299,7 @@ namespace Domotica
 
 		public void checkList()
 		{
-			//Check if there are items in the list and start or stop timer accoardingly
+			//Check if there are items in the list and start or stop timer accoardingly 
 			if(mDataList.Count > 0)
 				mTimer.Enabled = true;
 			else
