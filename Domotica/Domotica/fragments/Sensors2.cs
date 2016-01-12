@@ -237,12 +237,12 @@ namespace Domotica
 			int intValue = Convert.ToInt16 (sensorValue);
 			switch (relation)
 			{
-				case "Lower Then":
+				case "Lower Than":
 					if (intValue < thresholdValue)
 						return true;
 					else
 						return false;
-				case "Greater Then":
+				case "Greater Than":
 					if (intValue > thresholdValue)
 						return true;
 					else

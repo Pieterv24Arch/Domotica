@@ -57,10 +57,10 @@ namespace Domotica
 			mSensorThresholdRelation.Text = mItems [position].mRelation;
 			switch (mItems [position].mRelation)
 			{
-				case "Lower Then":
+				case "Lower Than":
 					mSensorThresholdRelation.Text = "<";
 					break;
-				case "Greater Then":
+				case "Greater Than":
 					mSensorThresholdRelation.Text = ">";
 					break;
 			}

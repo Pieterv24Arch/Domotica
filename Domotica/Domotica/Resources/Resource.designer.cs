@@ -2029,6 +2029,9 @@ namespace Domotica
 			// aapt resource value: 0x7f06001c
 			public const int FAQ = 2131099676;
 			
+			// aapt resource value: 0x7f060021
+			public const int FAQText = 2131099681;
+			
 			// aapt resource value: 0x7f060015
 			public const int Home = 2131099669;
 			
