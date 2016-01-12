@@ -76,7 +76,10 @@ namespace Domotica
 				alert.Dispose ();
 			});
 			alert.SetPositiveButton ("Edit", (senderAlert, EventArgs) => {
-				entryEdit(e.Position);
+				if(GlobalVariables.IpAvailable)
+					entryEdit(e.Position);
+				else
+					noConnectionAlert();
 			});
 			alert.SetNegativeButton ("Delete", (senderAlert, EventArgs) => {
 				mDataList.RemoveAt(e.Position);
@@ -104,7 +107,10 @@ namespace Domotica
 		{
 			if (item.ItemId == Resource.Id.Add_Button)
 			{
-				entryAdd ();
+				if (GlobalVariables.IpAvailable)
+					entryAdd ();
+				else
+					noConnectionAlert();
 			}
 
 			return base.OnOptionsItemSelected (item);
@@ -142,13 +148,6 @@ namespace Domotica
 						mSwitch.SelectedItem.ToString(),
 						mSwitch.SelectedItemPosition));
 					//notify listview that values have changed
-					mListAdapter.NotifyDataSetChanged();
-				}
-				//else give error Message and delete all entries
-				else
-				{
-					noConnectionAlert();
-					mDataList.Clear();
 					mListAdapter.NotifyDataSetChanged();
 				}
 				checkList();
@@ -193,12 +192,6 @@ namespace Domotica
 						mSwitch.SelectedItem.ToString(),
 						mSwitch.SelectedItemPosition);
 					//notify listview that data has changed
-					mListAdapter.NotifyDataSetChanged();
-				}
-				else
-				{
-					noConnectionAlert();
-					mDataList.Clear();
 					mListAdapter.NotifyDataSetChanged();
 				}
 				checkList();
