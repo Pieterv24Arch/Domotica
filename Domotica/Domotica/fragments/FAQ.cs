@@ -14,8 +14,14 @@ using Android.Widget;
 
 namespace Domotica
 {
-	public class FAQ : Android.Support.V4.App.Fragment
+	public class FAQ : MySupportFragment
 	{
+
+		public FAQ()
+		{
+			this.title = Resource.String.FAQ;
+		}
+
 		public override void OnCreate (Bundle savedInstanceState)
 		{
 			base.OnCreate (savedInstanceState);

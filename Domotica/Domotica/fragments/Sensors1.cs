@@ -15,8 +15,13 @@ using System.Timers;
 
 namespace Domotica
 {
-	public class Sensors1 : Android.Support.V4.App.Fragment
+	public class Sensors1 : MySupportFragment
 	{
+		public Sensors1()
+		{
+			this.title = Resource.String.Sensors1;
+		}
+
 		//TextViews
 		TextView Sensor1;
 		TextView Sensor2;

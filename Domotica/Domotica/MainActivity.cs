@@ -36,7 +36,7 @@ namespace Domotica
 		//List for the strings that are to populate the listview
 		private List<string> mDrawerData;
 		//Keeps track of what fragment is currently shown
-		private SupportFragment mCurrentFragment;
+		private MySupportFragment mCurrentFragment;
 		//Fragments.
 		private Home mHome;
 		private Switches1 mSwitches1;
@@ -49,7 +49,7 @@ namespace Domotica
 
 		//Stack to keep track of what fragments have been shown. 
 		//Is used for the back button
-		private Stack<SupportFragment> mStackFragment;
+		private Stack<MySupportFragment> mStackFragment;
 
 		protected override void OnCreate (Bundle savedInstanceState)
 		{
@@ -75,7 +75,7 @@ namespace Domotica
 			mFAQ = new FAQ ();
 
 			//create stack
-			mStackFragment = new Stack<SupportFragment> ();
+			mStackFragment = new Stack<MySupportFragment> ();
 
 			//Create Toolbar
 			SetSupportActionBar (mToolbar);
@@ -144,7 +144,7 @@ namespace Domotica
 			}
 			else
 			{
-				SupportActionBar.SetTitle (Resource.String.Home);	
+				SupportActionBar.SetTitle (mCurrentFragment.title);	
 			}
 
 			//Event handler
@@ -174,6 +174,7 @@ namespace Domotica
 			{
 				SupportFragmentManager.PopBackStack ();
 				mCurrentFragment = mStackFragment.Pop ();
+				SupportActionBar.SetTitle (mCurrentFragment.title);
 			} 
 			else 
 			{
@@ -189,41 +190,33 @@ namespace Domotica
 			{
 				case 0:
 					changeFragment(mHome);
-					SupportActionBar.SetTitle (Resource.String.Home);
 					break;
 				case 1:
-					changeFragment(mSwitches1);
-					SupportActionBar.SetTitle (Resource.String.Switches1);	
+					changeFragment(mSwitches1);	
 					break;
 				case 2:
-					changeFragment(mSensors1);
-					SupportActionBar.SetTitle (Resource.String.Sensors1);	
+					changeFragment(mSensors1);	
 					break;
 				case 3:
 					changeFragment(mSensors2);
-					SupportActionBar.SetTitle (Resource.String.Sensors2);	
 					break;
 				case 4:
 					changeFragment(mSwitches2);
-					SupportActionBar.SetTitle (Resource.String.Switches2);
 					break;
 				case 5:
 					changeFragment(mConnection1);
-					SupportActionBar.SetTitle (Resource.String.Connection);
 					break;
 				case 6:
 					changeFragment(mMode1);
-					SupportActionBar.SetTitle (Resource.String.Mode);
 					break;
 				case 7:
 					changeFragment (mFAQ);
-					SupportActionBar.SetTitle (Resource.String.FAQ);
 					break;
 			}	
 		}
 
 		//Change Shown fragment and hide current
-		private void changeFragment(SupportFragment fragment1)
+		private void changeFragment(MySupportFragment fragment1)
 		{
 			if (fragment1 != mCurrentFragment) 
 			{
@@ -236,6 +229,7 @@ namespace Domotica
 
 				mStackFragment.Push (mCurrentFragment);
 				mCurrentFragment = fragment1;
+				SupportActionBar.SetTitle (mCurrentFragment.title);
 			}
 			mDrawerLayout.CloseDrawer (mDrawer);
 		}

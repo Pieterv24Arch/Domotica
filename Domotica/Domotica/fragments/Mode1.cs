@@ -14,8 +14,14 @@ using Android.Widget;
 
 namespace Domotica
 {
-	public class Mode1 : Android.Support.V4.App.Fragment
+	public class Mode1 : MySupportFragment
 	{
+
+		public Mode1()
+		{
+			this.title = Resource.String.Mode;
+		}
+
 		public override void OnCreate (Bundle savedInstanceState)
 		{
 			base.OnCreate (savedInstanceState);

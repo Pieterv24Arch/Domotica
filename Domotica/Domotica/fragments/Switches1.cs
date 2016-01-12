@@ -15,8 +15,13 @@ using System.Threading;
 
 namespace Domotica
 {
-	public class Switches1 : Android.Support.V4.App.Fragment
+	public class Switches1 : MySupportFragment
 	{
+		public Switches1()
+		{
+			this.title = Resource.String.Switches1;
+		}
+
 		//Switch Variables
 		private Switch Adapter1;
 		private Switch Adapter2;

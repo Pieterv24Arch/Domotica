@@ -13,8 +13,13 @@ using Android.Widget;
 
 namespace Domotica
 {
-	public class Home : Android.Support.V4.App.Fragment
+	public class Home : MySupportFragment
 	{
+		public Home()
+		{
+			this.title = Resource.String.Home;
+		}
+
 		public override void OnCreate (Bundle savedInstanceState)
 		{
 			base.OnCreate (savedInstanceState);

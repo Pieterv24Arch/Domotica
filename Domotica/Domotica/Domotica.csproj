@@ -66,6 +66,7 @@
     <Compile Include="Adapters\SensorListAdapter.cs" />
     <Compile Include="Adapters\ListItems\SensorItem.cs" />
     <Compile Include="fragments\FAQ.cs" />
+    <Compile Include="MySupportFragment.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

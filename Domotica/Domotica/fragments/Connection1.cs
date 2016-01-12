@@ -16,7 +16,7 @@ using Android.Widget;
 
 namespace Domotica
 {
-	public class Connection1 : Android.Support.V4.App.Fragment
+	public class Connection1 : MySupportFragment
 	{
 		//Connection Variables
 		private Button mConnectionButton;
@@ -26,6 +26,11 @@ namespace Domotica
 		private EditText mIpField4;
 		private EditText mPortField;
 		private TextView mConnection_Text;
+
+		public Connection1 ()
+		{
+			this.title = Resource.String.Connection;
+		}
 
 		List<EditText> ipFields;
 

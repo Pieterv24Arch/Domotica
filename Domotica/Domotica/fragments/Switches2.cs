@@ -14,8 +14,13 @@ using Android.Widget;
 
 namespace Domotica
 {
-	public class Switches2 : Android.Support.V4.App.Fragment
+	public class Switches2 : MySupportFragment
 	{
+		public Switches2()
+		{
+			this.title = Resource.String.Switches2;
+		}
+
 		public override void OnCreate (Bundle savedInstanceState)
 		{
 			base.OnCreate (savedInstanceState);
