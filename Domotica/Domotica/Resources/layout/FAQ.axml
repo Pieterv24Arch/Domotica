@@ -4,9 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="5sp">
-    <TextView
-        android:text="@string/FAQText"
+    <ScrollView
+        android:minWidth="25px"
+        android:minHeight="25px"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/my_textColorLight" />
+        android:layout_height="wrap_content">
+        <TextView
+            android:text="@string/FAQText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/my_textColorLight" />
+    </ScrollView>
 </LinearLayout>
