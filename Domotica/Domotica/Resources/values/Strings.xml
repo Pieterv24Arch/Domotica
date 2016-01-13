@@ -36,12 +36,15 @@
 		<font size='16'> <b>Welcome to our home automation application. Click on the top left menu icon to open the menu or swipe to the right to open it.</b></font>\n
 		\n
 		<font size='14'>
-		With this awesome app you are able to control (almost) everything in your house. For example ; your light, TV, coffee maker  etc.\n
-		With this app you are able to control sockets by means of switches which can be controlled by this app. <b> Make sure to make connection first before using the app! </b> 
+With this awesome app you are able to control (almost) everything in your house. For example ; your light, TV, coffee maker etc.\n
+\n
+With this app you are able to control sockets by means of switches which can be controlled by this app.\n
+<b> Make sure to make connection first before using the app! </b>\n
 		For connection instructions	go to the FAQ in the menu.\n
-		You can read the sensorvalues (temperature and light) and set threshholds which are connected to the switches.
+		\n
+You can read the sensorvalues (temperature and light) and set threshholds which are connected to the switches.
 		Threshholds are used to control your switches that are affected by sensorvalues.\n
-		e.g: Set sensorValue threshhold on &lt; (lower) than 200 on switch 2, this means switch 2 will react when the sensorvalue gets lower than 200.
+e.g: Set sensorValue threshhold on &lt; (lower) than 200 on switch 2, this means switch 2 will react when the sensorvalue gets lower than 200.
 		These instructions are also written in the FAQ.\n
 		</font>
 	</string>
@@ -70,6 +73,15 @@
 		- Xamarin Studio and Visual Studio for programming the mobile app \n
 		- Arduino for programming the arduino (sensorValues, rf-transmitter) \n
 		- Sourcetree (github) for version control \n
+		\n
+		<b>What software development method did you use?</b>\n
+		- SCRUM \n
+		- We used trello for an organised overview. \n
+		\n
+
+
+
+		 \n
 
 
 
