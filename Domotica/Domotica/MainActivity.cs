@@ -41,7 +41,7 @@ namespace Domotica
 		private Home mHome;
 		private Switches1 mSwitches1;
 		private Switches2 mSwitches2;
-		private Sensors1 mSensors1;
+		//private Sensors1 mSensors1;
 		private Sensors2 mSensors2;
 		private Connection1 mConnection1;
 		private Mode1 mMode1;
@@ -68,7 +68,7 @@ namespace Domotica
 			mHome = new Home();
 			mSwitches1 = new Switches1 ();
 			mSwitches2 = new Switches2 ();
-			mSensors1 = new Sensors1 ();
+			//mSensors1 = new Sensors1 ();
 			mSensors2 = new Sensors2 ();
 			mConnection1 = new Connection1 ();
 			mMode1 = new Mode1 ();
@@ -101,8 +101,8 @@ namespace Domotica
 			trans.Add (Resource.Id.fragmentContainter, mSensors2, "Sensors2");
 			trans.Hide (mSensors2);
 
-			trans.Add (Resource.Id.fragmentContainter, mSensors1, "Sensors1");
-			trans.Hide (mSensors1);
+			/*trans.Add (Resource.Id.fragmentContainter, mSensors1, "Sensors1");
+			trans.Hide (mSensors1);*/
 
 			trans.Add (Resource.Id.fragmentContainter, mSwitches2, "Switches2");
 			trans.Hide(mSwitches2);
@@ -118,7 +118,7 @@ namespace Domotica
 			mCurrentFragment = mHome;
 
 			//Set Strings to populate the listview of the navigation drawer
-			mDrawerData = new List<string> () {"Home", "Switches", "Sensors", "Sensor Threshold", "Timers","Connection", "FAQ", "Modes"};
+			mDrawerData = new List<string> () {"Home", "Switches", "Sensors", /*"Sensor Threshold",*/ "Timers","Connection", "FAQ", "Modes"};
 			//Set adaper to show these in the listview. The resource.layout.mytextview is the place that the adapter uses to create each list item
 			mAdapter = new ArrayAdapter<string> (this, Resource.Layout.mytextview, mDrawerData);
 			//set adapter drawer to the one just created
@@ -194,22 +194,22 @@ namespace Domotica
 				case 1:
 					changeFragment(mSwitches1);	
 					break;
-				case 2:
+				/*case 2:
 					changeFragment(mSensors1);	
-					break;
-				case 3:
+					break;*/
+				case 2:
 					changeFragment(mSensors2);
 					break;
-				case 4:
+				case 3:
 					changeFragment(mSwitches2);
 					break;
-				case 5:
+				case 4:
 					changeFragment(mConnection1);
 					break;
-				case 6:
+				case 5:
 					changeFragment(mFAQ);
 					break;
-				case 7:
+				case 6:
 					changeFragment (mMode1);
 					break;
 			}	

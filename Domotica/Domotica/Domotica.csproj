@@ -54,7 +54,6 @@
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="fragments\Switches1.cs" />
-    <Compile Include="fragments\Sensors1.cs" />
     <Compile Include="fragments\Sensors2.cs" />
     <Compile Include="fragments\Switches2.cs" />
     <Compile Include="fragments\Connection1.cs" />
@@ -67,6 +66,7 @@
     <Compile Include="Adapters\ListItems\SensorItem.cs" />
     <Compile Include="fragments\FAQ.cs" />
     <Compile Include="MySupportFragment.cs" />
+    <Compile Include="fragments\Sensors1%28Deprecated%29.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

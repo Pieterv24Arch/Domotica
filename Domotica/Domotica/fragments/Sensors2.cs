@@ -24,6 +24,18 @@ namespace Domotica
 			this.title = Resource.String.Sensors2;
 		}
 
+		//TextViews
+		TextView mSensor1;
+		TextView mSensor2;
+
+		//Checkboxes
+		CheckBox mSensor1Check;
+		CheckBox mSensor2Check;
+
+		//Interactive elements
+		Button mRefreshButton;
+		Switch mRefreshToggleSwitch;
+
 		ListView mListview;
 		List<SensorItem> mDataList;
 
@@ -39,7 +51,7 @@ namespace Domotica
 
 			mTimer = new Timer ();
 			mTimer.Interval = 1000;
-			mTimer.Elapsed += new ElapsedEventHandler (getValues);
+			mTimer.Elapsed += new ElapsedEventHandler (Timer_Tick);
 
 			HasOptionsMenu = true;
 			// Create your fragment here
@@ -53,6 +65,12 @@ namespace Domotica
 			View view = inflater.Inflate (Resource.Layout.Sensors2, container, false);
 
 			mListview = view.FindViewById<ListView> (Resource.Id.SensorThresholdList);
+			mSensor1 = view.FindViewById<TextView> (Resource.Id.sensor1Text);
+			mSensor2 = view.FindViewById<TextView> (Resource.Id.sensor2Text);
+			mSensor1Check = view.FindViewById<CheckBox> (Resource.Id.Sensor1_Checkbox);
+			mSensor2Check = view.FindViewById<CheckBox> (Resource.Id.Sensor2_Checkbox);
+			mRefreshButton = view.FindViewById<Button> (Resource.Id.Refresh_Sensors);
+			mRefreshToggleSwitch = view.FindViewById<Switch> (Resource.Id.Toggle_SensorRefresh);
 
 			mDataList = new List<SensorItem>();
 			//mDataList.Add (new SensorItem ("Lightsensor", "=>", 455, "Switch 1")); //For Debuggin purposes
@@ -63,8 +81,29 @@ namespace Domotica
 			mListview.ItemClick += MListview_ItemClick;
 			mListview.ItemLongClick += MListview_ItemLongClick;
 
+			mRefreshButton.Click += MRefreshButton_Click;
+			mRefreshToggleSwitch.CheckedChange += MRefreshToggleSwitch_CheckedChange;
+
 
 			return view;
+		}
+
+		void MRefreshToggleSwitch_CheckedChange (object sender, CompoundButton.CheckedChangeEventArgs e)
+		{
+			if (GlobalVariables.IpAvailable) 
+			{
+				mTimer.Enabled = true;
+			} 
+			else
+			{
+				mTimer.Enabled = false;
+				noConnectionAlert ();
+			}
+		}
+
+		void MRefreshButton_Click (object sender, EventArgs e)
+		{
+			Timer_Tick (null, null);
 		}
 
 		void MListview_ItemLongClick (object sender, AdapterView.ItemLongClickEventArgs e)
@@ -84,8 +123,6 @@ namespace Domotica
 			alert.SetNegativeButton ("Delete", (senderAlert, EventArgs) => {
 				mDataList.RemoveAt(e.Position);
 				mListAdapter.NotifyDataSetChanged();
-
-				checkList();
 			});
 			Activity.RunOnUiThread (() => {
 				alert.Show ();
@@ -150,7 +187,6 @@ namespace Domotica
 					//notify listview that values have changed
 					mListAdapter.NotifyDataSetChanged();
 				}
-				checkList();
 			});
 			Activity.RunOnUiThread (() => {
 				alert.Show();
@@ -194,32 +230,27 @@ namespace Domotica
 					//notify listview that data has changed
 					mListAdapter.NotifyDataSetChanged();
 				}
-				checkList();
 			});
 			Activity.RunOnUiThread (() => {
 				alert.Show();
 			});
 		}
 
-		public void getValues(object sender, ElapsedEventArgs e)
+		public void checkEntries(string[] tempString)
 		{
-			if (mDataList.Count > 0)
+			if (tempString.Length == 2)
 			{
-				string[] tempString = connect.ask ("getVal").Split (',');
-				if (tempString.Length == 2)
+				foreach (SensorItem s in mDataList)
 				{
-					foreach (SensorItem s in mDataList)
+					switch (s.mSensorName)
 					{
-						switch (s.mSensorName)
-						{
-							case "Temperature Sensor":
-								//bool state = checkValues (tempString [0], s.mRelation, s.mValue);
-								switchControl (s.mSwitchIdentity, checkValues (tempString [0], s.mRelation, s.mValue));
-								break;
-							case "Light Sensor":
-								switchControl (s.mSwitchIdentity, checkValues (tempString [1], s.mRelation, s.mValue));
-								break;
-						}
+						case "Temperature Sensor":
+							//bool state = checkValues (tempString [0], s.mRelation, s.mValue);
+							switchControl (s.mSwitchIdentity, checkValues (tempString [0], s.mRelation, s.mValue));
+							break;
+						case "Light Sensor":
+							switchControl (s.mSwitchIdentity, checkValues (tempString [1], s.mRelation, s.mValue));
+							break;
 					}
 				}
 			}
@@ -297,13 +328,9 @@ namespace Domotica
 			}
 		}
 
-		public void checkList()
+		public void Timer_Tick(object sender, ElapsedEventArgs e)
 		{
-			//Check if there are items in the list and start or stop timer accoardingly 
-			if(mDataList.Count > 0)
-				mTimer.Enabled = true;
-			else
-				mTimer.Enabled = false;
+			
 		}
 
 		//Show alert for no connection detected
