@@ -84,7 +84,7 @@ namespace Domotica
 				ThreadPool.QueueUserWorkItem(args => {
 					connect.TestConnection(mConnection_Text);
 					Activity.RunOnUiThread(() => {
-						mConnection_Text.Text = GlobalVariables.IpAvailable ? "Connection Succesfull" : "Connection Failed";
+						mConnection_Text.Text = GlobalVariables.IpAvailable ? "Connection Succesful" : "Connection Failed";
 					});
 				});
 			};

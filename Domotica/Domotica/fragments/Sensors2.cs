@@ -72,8 +72,11 @@ namespace Domotica
 			mRefreshButton = view.FindViewById<Button> (Resource.Id.Refresh_Sensors);
 			mRefreshToggleSwitch = view.FindViewById<Switch> (Resource.Id.Toggle_SensorRefresh);
 
+			//change textColor of switch
+			mRefreshToggleSwitch.SetTextColor(Android.Graphics.Color.White);
+
 			mDataList = new List<SensorItem>();
-			//mDataList.Add (new SensorItem ("Lightsensor", "=>", 455, "Switch 1")); //For Debuggin purposes
+			//mDataList.Add (new SensorItem ()); //For Debuggin purposes
 
 			mListAdapter = new SensorListAdapter (this.Activity, mDataList);
 			mListview.Adapter = mListAdapter;
@@ -92,10 +95,14 @@ namespace Domotica
 		{
 			if (GlobalVariables.IpAvailable) 
 			{
-				mTimer.Enabled = true;
+				if (e.IsChecked)
+					mTimer.Enabled = true;
+				else
+					mTimer.Enabled = false;
 			} 
 			else
 			{
+				mRefreshToggleSwitch.Checked = false;
 				mTimer.Enabled = false;
 				noConnectionAlert ();
 			}
@@ -330,7 +337,12 @@ namespace Domotica
 
 		public void Timer_Tick(object sender, ElapsedEventArgs e)
 		{
-			
+			string[] tempString = getSensorValue ();
+			updateTextView (tempString);
+			if (mDataList.Count > 0) {
+				checkEntries (tempString);
+			}
+
 		}
 
 		//Show alert for no connection detected
@@ -347,6 +359,30 @@ namespace Domotica
 			});
 		}
 
+		public string[] getSensorValue()
+		{
+			if (GlobalVariables.IpAvailable) {
+				return connect.ask ("getVal").Split (',');
+			} else
+				return new string[0];
+		}
+
+		public void updateTextView(string[] data)
+		{
+			if (data.Length == 2) 
+			{
+				Activity.RunOnUiThread (() => {
+					if (mSensor1Check.Checked)
+						mSensor1.Text = data [0];
+					else
+						mSensor1.Text = "";
+					if (mSensor2Check.Checked)
+						mSensor2.Text = data [1];
+					else
+						mSensor2.Text = "";
+				});
+			}
+		}
 	}
 		
 }

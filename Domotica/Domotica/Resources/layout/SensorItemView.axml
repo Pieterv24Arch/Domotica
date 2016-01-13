@@ -9,7 +9,7 @@
     <LinearLayout
         android:orientation="horizontal"
         android:minWidth="25px"
-        android:minHeight="25px"
+        android:minHeight="80sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="20sp"
@@ -19,27 +19,31 @@
             android:id="@+id/SensorName"
             android:textSize="20sp"
             android:layout_width="0dp"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:textColor="@color/my_textColorLight" />
         <TextView
             android:layout_weight="10"
             android:id="@+id/SensorThresholdRelation"
             android:textSize="20sp"
             android:gravity="center"
             android:layout_width="0dp"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:textColor="@color/my_textColorLight" />
         <TextView
             android:layout_weight="20"
             android:gravity="center"
             android:id="@+id/SensorThreshold"
             android:textSize="20sp"
             android:layout_width="0dp"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:textColor="@color/my_textColorLight" />
         <TextView
             android:layout_weight="30"
             android:gravity="right"
             android:id="@+id/SensorSwitchControl"
             android:textSize="20sp"
             android:layout_width="0dp"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:textColor="@color/my_textColorLight" />
     </LinearLayout>
 </LinearLayout>

@@ -87,7 +87,6 @@
     <AndroidResource Include="Resources\layout\mytextview.xml" />
     <AndroidResource Include="Resources\layout\Switches1.axml" />
     <AndroidResource Include="Resources\layout\Switches2.axml" />
-    <AndroidResource Include="Resources\layout\Sensors1.axml" />
     <AndroidResource Include="Resources\layout\Sensors2.axml" />
     <AndroidResource Include="Resources\layout\Connection.axml" />
     <AndroidResource Include="Resources\layout\Mode.axml" />
@@ -101,6 +100,7 @@
     <AndroidResource Include="Resources\layout\SensorItemView.axml" />
     <AndroidResource Include="Resources\layout\AddSensorLayout.axml" />
     <AndroidResource Include="Resources\layout\FAQ.axml" />
+    <AndroidResource Include="Resources\layout\Sensors1.axml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />
