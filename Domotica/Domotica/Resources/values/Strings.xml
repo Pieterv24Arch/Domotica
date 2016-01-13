@@ -33,31 +33,47 @@
 		<item>All Switches</item>
 	</string-array>
 	<string name="HomeText">
-	<b>Welcome to our home automation application. Click on the top left menu icon to open the menu or swipe to the right to open it.</b>\n
-	\n
-	With this awesome app you are able to annoy everybody in your house. Your sister, mom, dad, even your dog!\n
-	With this app you are able to control sockets by means of switches which can be controlled by this app. <b> Make sure to make connection first before using the app! </b> 
-	For connection instructions	go to the FAQ in the menu.\n
-	You can read the sensorvalues (temperature and light) and set threshholds which are connected to the switches. These instructions are also written in the FAQ.
-
+		<font size='16'> <b>Welcome to our home automation application. Click on the top left menu icon to open the menu or swipe to the right to open it.</b></font>\n
+		\n
+		<font size='14'>
+		With this awesome app you are able to control (almost) everything in your house. For example ; your light, TV, coffee maker  etc.\n
+		With this app you are able to control sockets by means of switches which can be controlled by this app. <b> Make sure to make connection first before using the app! </b> 
+		For connection instructions	go to the FAQ in the menu.\n
+		You can read the sensorvalues (temperature and light) and set threshholds which are connected to the switches.
+		Threshholds are used to control your switches that are affected by sensorvalues.\n
+		e.g: Set sensorValue threshhold on &lt; (lower) than 200 on switch 2, this means switch 2 will react when the sensorvalue gets lower than 200.
+		These instructions are also written in the FAQ.\n
+		</font>
 	</string>
 
 	<string name="FAQText">
+		<font size='22'>Instructions</font>\n
+		\n
+		<b>1.	To make connection simply tap the ‘connection’ button on the menu. </b>\n
+		-	Enter ip-adress of the arduino \n
+		-	Enter port-number of the arduino  \n
+		\n
+		In order to make connection click the connectbutton.\n
+		The text below will indicate if the connection succeeded.\n
+		\n
+		<b>2.	To control your switches open switches in menu (yes! It’s that easy!) </b>\n
+		-	You can toggle the switches by using the switchbuttons \n
+		-	‘Refresh switches’ to refresh the state of the switches \n
+		\n
+		<b>3.	 Open sensors in menu to get sensorvalues of the temperature Sensor and light sensor. You can update the values by manually pressing the “REFRESH SENSORS” button or you can automatticly update the sensorvalues by toggle the “Toggle Refresh” toggleswitch.</b> \n
+		\n
+		<b>4.	Use sensor Threshhold to manually activate a switch by enter a threshhold value for a sensor. Click the + to add an entry. </b> \n
+		If you want to edit or delete simply hold the threshhold for settings. \n
+		\n
+		<b>What programs did you use to make this app?</b>\n
+		For this home automation application we used several apps.\n
+		- Xamarin Studio and Visual Studio for programming the mobile app \n
+		- Arduino for programming the arduino (sensorValues, rf-transmitter) \n
+		- Sourcetree (github) for version control \n
 
-<b>1.	To make connection simply tap the ‘connection’ button on the menu. </b>\n
--	Enter ip-adress of the arduino \n
--	Enter port-number of the arduino  \n
-\n
-In order to make connection click the connectbutton.\n
-The text will indicate if the connection succeeded.\n
-\n
-<b>2.	To control your switches open switches in menu (yes! It’s that easy!) </b>\n
--	You can toggle the switches by using the switchbuttons \n
--	‘Refresh switches’ to refresh the state of the switches \n
-\n
-<b>3.	 Open sensors in menu to get sensorvalues of the temperature Sensor and light sensor. You can update the values by manually pressing the “REFRESH SENSORS” button or you can automatticly update the sensorvalues by toggle the “Toggle Refresh” toggleswitch.</b> \n
-\n
-<b>4.	Open “sensor Threshold” to manually activate a switch by enter a threshhold value for a sensor. Click the + to add an entry. </b> \n
+
+
+
 
 
 	</string>
