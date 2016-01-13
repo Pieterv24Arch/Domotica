@@ -32,6 +32,11 @@
 		<item>Switch 4</item>
 		<item>All Switches</item>
 	</string-array>
+	<string-array name="Mode">
+		<item>Switch Mode</item>
+		<item>Threshold Mode</item>
+		<item>Timer Mode</item>
+	</string-array>
 	<string name="HomeText">
 		<font size='16'> <b>Welcome to our home automation application. Click on the top left menu icon to open the menu or swipe to the right to open it.</b></font>\n
 		\n<font size='14'>With this awesome app you are able to control (almost) everything in your house. For example ; your light, TV, coffee maker etc.\n

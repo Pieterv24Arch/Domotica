@@ -17,6 +17,8 @@ namespace Domotica
 	public class Mode1 : MySupportFragment
 	{
 
+		Spinner mModeSpinner;
+
 		public Mode1()
 		{
 			this.title = Resource.String.Mode;
@@ -27,6 +29,8 @@ namespace Domotica
 			base.OnCreate (savedInstanceState);
 
 			// Create your fragment here
+
+			GlobalVariables.Mode = "Switch Mode";
 		}
 
 		public override View OnCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -36,7 +40,18 @@ namespace Domotica
 
 			View view = inflater.Inflate (Resource.Layout.Mode, container, false);
 
+			//assign id from layout to mModeSpinner
+			mModeSpinner = view.FindViewById<Spinner> (Resource.Id.ModeSpinner);
+
+			//event handler for if different item is selected;
+			mModeSpinner.ItemSelected += MModeSpinner_ItemSelected;
+
 			return view;
+		}
+
+		void MModeSpinner_ItemSelected (object sender, AdapterView.ItemSelectedEventArgs e)
+		{
+			GlobalVariables.Mode = mModeSpinner.SelectedItem.ToString();
 		}
 	}
 }

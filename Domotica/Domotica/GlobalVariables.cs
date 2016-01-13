@@ -8,6 +8,7 @@ namespace Domotica
 		static string _IPAddress;
 		static int _PortAddress;
 		static bool _IpAvailable;
+		static string _Mode;
 
 		public static string IPAddress
 		{
@@ -36,6 +37,16 @@ namespace Domotica
 			}
 			set {
 				_IpAvailable = value;
+			}
+		}
+
+		public static string Mode
+		{
+			get {
+				return _Mode;
+			}
+			set {
+				_Mode = value;
 			}
 		}
 	}

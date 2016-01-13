@@ -6,7 +6,7 @@
 #define lightPin  0 
 
 byte mac[] = {0x40, 0x6e, 0x9f, 0x06, 0xe4, 0x7a};
-IPAddress ip(192, 168, 4, 10);
+IPAddress ip(192, 168, 1, 10);
 RCSwitch mySwitch = RCSwitch();
 EthernetServer server(32545);
 bool connected = false;

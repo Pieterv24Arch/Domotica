@@ -24,6 +24,8 @@ namespace Domotica
 			this.title = Resource.String.Sensors2;
 		}
 
+		bool backgroundChange = false;
+
 		//TextViews
 		TextView mSensor1;
 		TextView mSensor2;
@@ -93,24 +95,34 @@ namespace Domotica
 
 		void MRefreshToggleSwitch_CheckedChange (object sender, CompoundButton.CheckedChangeEventArgs e)
 		{
-			if (GlobalVariables.IpAvailable) 
+			if (!backgroundChange)
 			{
-				if (e.IsChecked)
-					mTimer.Enabled = true;
-				else
+				if (GlobalVariables.IpAvailable && GlobalVariables.Mode == "Threshold Mode")
+				{
+					if (e.IsChecked)
+						mTimer.Enabled = true;
+					else
+						mTimer.Enabled = false;
+				} else
+				{
+					mRefreshToggleSwitch.Checked = false;
 					mTimer.Enabled = false;
-			} 
-			else
-			{
-				mRefreshToggleSwitch.Checked = false;
-				mTimer.Enabled = false;
-				noConnectionAlert ();
+					if (!GlobalVariables.IpAvailable)
+						noConnectionAlert ();
+					else
+						wrongModeAlert ();
+				}
 			}
 		}
 
 		void MRefreshButton_Click (object sender, EventArgs e)
 		{
-			Timer_Tick (null, null);
+			if (GlobalVariables.Mode == "Threshold Mode")
+				Timer_Tick (null, null);
+			else
+			{
+				wrongModeAlert ();
+			}
 		}
 
 		void MListview_ItemLongClick (object sender, AdapterView.ItemLongClickEventArgs e)
@@ -337,12 +349,23 @@ namespace Domotica
 
 		public void Timer_Tick(object sender, ElapsedEventArgs e)
 		{
-			string[] tempString = getSensorValue ();
-			updateTextView (tempString);
-			if (mDataList.Count > 0) {
-				checkEntries (tempString);
+			if (GlobalVariables.Mode == "Threshold Mode")
+			{
+				string[] tempString = getSensorValue ();
+				updateTextView (tempString);
+				if (mDataList.Count > 0)
+				{
+					checkEntries (tempString);
+				}
+			} else
+			{
+				Activity.RunOnUiThread (() => {
+					backgroundChange = true;
+					mRefreshToggleSwitch.Checked = false;
+					backgroundChange = false;
+				});
+				mTimer.Enabled = false;
 			}
-
 		}
 
 		//Show alert for no connection detected
@@ -356,6 +379,20 @@ namespace Domotica
 			});
 			Activity.RunOnUiThread (() => {
 				alert.Show ();
+			});
+		}
+
+		public void wrongModeAlert()
+		{
+			AlertDialog.Builder alert = new AlertDialog.Builder (this.Activity);
+			alert.SetTitle ("Wrong Mode Selected");
+			alert.SetMessage ("You are in the wrong mode to control the switches with this page.\n" +
+				"Please change modes to use this feature.");
+			alert.SetNeutralButton ("OK", (senderAlert, EventArgs) => {
+				alert.Dispose ();
+			});
+			Activity.RunOnUiThread (() => {
+				alert.Show();
 			});
 		}
 

@@ -62,40 +62,20 @@ namespace Domotica
 
 			//Switches Event Handler
 			//Actions to perform if a switch is toggled
-			Adapter1.CheckedChange += delegate(object sender, CompoundButton.CheckedChangeEventArgs e) 
-			{
-				if (!backgroundChange)//check if statechange is comming from user
-					ThreadPool.QueueUserWorkItem (o => switchControl (1, e.IsChecked));
-				if(!GlobalVariables.IpAvailable)//set switch to false if no connection is available
-					Adapter1.Checked = false;
+			Adapter1.CheckedChange += delegate(object sender, CompoundButton.CheckedChangeEventArgs e) {
+				Changed(Adapter1, e.IsChecked);
 			};
-			Adapter2.CheckedChange += delegate(object sender, CompoundButton.CheckedChangeEventArgs e) 
-			{
-				if (!backgroundChange)
-					ThreadPool.QueueUserWorkItem (o => switchControl (2, e.IsChecked));
-				if(!GlobalVariables.IpAvailable)
-					Adapter2.Checked = false;
+			Adapter2.CheckedChange += delegate(object sender, CompoundButton.CheckedChangeEventArgs e) {
+				Changed(Adapter2, e.IsChecked);
 			};
-			Adapter3.CheckedChange += delegate (object sender, CompoundButton.CheckedChangeEventArgs e) 
-			{
-				if (!backgroundChange)
-					ThreadPool.QueueUserWorkItem (o => switchControl (3, e.IsChecked));
-				if(!GlobalVariables.IpAvailable)
-					Adapter3.Checked = false;
+			Adapter3.CheckedChange += delegate(object sender, CompoundButton.CheckedChangeEventArgs e) {
+				Changed(Adapter3, e.IsChecked);
 			};
-			Adapter4.CheckedChange += delegate (object sender, CompoundButton.CheckedChangeEventArgs e) 
-			{
-				if (!backgroundChange)
-					ThreadPool.QueueUserWorkItem (o => switchControl (4, e.IsChecked));
-				if(!GlobalVariables.IpAvailable)
-					Adapter4.Checked = false;
+			Adapter4.CheckedChange += delegate(object sender, CompoundButton.CheckedChangeEventArgs e) {
+				Changed(Adapter4, e.IsChecked);
 			};
-			Adapter5.CheckedChange += delegate (object sender, CompoundButton.CheckedChangeEventArgs e) 
-			{
-				if (!backgroundChange)
-					ThreadPool.QueueUserWorkItem (o => switchControl (5, e.IsChecked));
-				if(!GlobalVariables.IpAvailable)
-					Adapter5.Checked = false;
+			Adapter5.CheckedChange += delegate(object sender, CompoundButton.CheckedChangeEventArgs e) {
+				Changed(Adapter5, e.IsChecked);
 			};
 			buttonRefresh.Click += delegate {
 				if(GlobalVariables.IpAvailable)
@@ -106,28 +86,45 @@ namespace Domotica
 			return view;
 		}
 
+		public void Changed (Switch lAdapter, bool e)
+		{
+			bool rightMode = (GlobalVariables.Mode == "Switch Mode");
+			if (!backgroundChange && rightMode)//check if statechange is comming from user
+				ThreadPool.QueueUserWorkItem (o => switchControl (lAdapter, e));
+			if(!GlobalVariables.IpAvailable)//set switch to false if no connection is available
+				lAdapter.Checked = false;
+				if (!rightMode)
+			{
+				lAdapter.Checked = false;
+				wrongModeAlert ();
+			}
+			
+		}
+
+
+
 		//Send commands to toggle a switch to the arduino
-		public void switchControl(int switchNr, bool state)
+		public void switchControl(Switch lAdapter, bool state)
 		{
 			if (GlobalVariables.IpAvailable)
 			{
 				//what switch should be toggled
-				switch (switchNr)
+				switch (lAdapter.Text)
 				{
-					case 1:
+					case "Switch 1":
 						//what command should be send to the arduino
 						connect.tell (state ? "Ch1ON" : "Ch1OFF");
 						break;
-					case 2:
+					case "Switch 2":
 						connect.tell (state ? "Ch2ON" : "Ch2OFF");
 						break;
-					case 3:
+					case "Switch 3":
 						connect.tell (state ? "Ch3ON" : "Ch3OFF");
 						break;
-					case 4:
+					case "Switch 4":
 						connect.tell (state ? "Ch4ON" : "Ch4OFF");
 						break;
-					case 5:
+					case "All Switches":
 						connect.tell (state ? "ChAllON" : "ChAllOFF");
 						break;
 				}
@@ -199,6 +196,20 @@ namespace Domotica
 			});
 			Activity.RunOnUiThread (() => {
 				alert.Show ();
+			});
+		}
+
+		public void wrongModeAlert()
+		{
+			AlertDialog.Builder alert = new AlertDialog.Builder (this.Activity);
+			alert.SetTitle ("Wrong Mode Selected");
+			alert.SetMessage ("You are in the wrong mode to control the switches with this page.\n" +
+				"Please change modes to use this feature.");
+			alert.SetNeutralButton ("OK", (senderAlert, EventArgs) => {
+				alert.Dispose ();
+			});
+			Activity.RunOnUiThread (() => {
+				alert.Show();
 			});
 		}
 	}
