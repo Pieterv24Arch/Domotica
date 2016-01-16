@@ -86,6 +86,9 @@ namespace Domotica
 		public partial class Array
 		{
 			
+			// aapt resource value: 0x7f0d0004
+			public const int Bools = 2131558404;
+			
 			// aapt resource value: 0x7f0d0003
 			public const int Mode = 2131558403;
 			
@@ -1403,8 +1406,8 @@ namespace Domotica
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f0c008d
-			public const int Add_Button = 2131493005;
+			// aapt resource value: 0x7f0c0097
+			public const int Add_Button = 2131493015;
 			
 			// aapt resource value: 0x7f0c0087
 			public const int Ch1 = 2131492999;
@@ -1474,6 +1477,27 @@ namespace Domotica
 			
 			// aapt resource value: 0x7f0c0055
 			public const int SwitchNameSpinner = 2131492949;
+			
+			// aapt resource value: 0x7f0c008f
+			public const int Time = 2131493007;
+			
+			// aapt resource value: 0x7f0c0093
+			public const int TimeHourField = 2131493011;
+			
+			// aapt resource value: 0x7f0c0094
+			public const int TimeMinuteField = 2131493012;
+			
+			// aapt resource value: 0x7f0c008d
+			public const int TimerCheckSwitch = 2131493005;
+			
+			// aapt resource value: 0x7f0c008e
+			public const int TimerList = 2131493006;
+			
+			// aapt resource value: 0x7f0c0096
+			public const int TimerStateSpinner = 2131493014;
+			
+			// aapt resource value: 0x7f0c0095
+			public const int TimerSwitchNameSpinner = 2131493013;
 			
 			// aapt resource value: 0x7f0c0085
 			public const int Toggle_SensorRefresh = 2131492997;
@@ -1685,6 +1709,9 @@ namespace Domotica
 			// aapt resource value: 0x7f0c0054
 			public const int nonsensetext3 = 2131492948;
 			
+			// aapt resource value: 0x7f0c0092
+			public const int nonsensething1 = 2131493010;
+			
 			// aapt resource value: 0x7f0c000a
 			public const int normal = 2131492874;
 			
@@ -1801,6 +1828,12 @@ namespace Domotica
 			
 			// aapt resource value: 0x7f0c0069
 			public const int time = 2131492969;
+			
+			// aapt resource value: 0x7f0c0090
+			public const int timeSwitch = 2131493008;
+			
+			// aapt resource value: 0x7f0c0091
+			public const int timeSwitchState = 2131493009;
 			
 			// aapt resource value: 0x7f0c002c
 			public const int title = 2131492908;
@@ -2017,6 +2050,12 @@ namespace Domotica
 			// aapt resource value: 0x7f040030
 			public const int Switches2 = 2130968624;
 			
+			// aapt resource value: 0x7f040031
+			public const int TimerItemView = 2130968625;
+			
+			// aapt resource value: 0x7f040032
+			public const int TimerSensorLayout = 2130968626;
+			
 			static Layout()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
@@ -2149,6 +2188,9 @@ namespace Domotica
 			// aapt resource value: 0x7f060014
 			public const int closeDrawer = 2131099668;
 			
+			// aapt resource value: 0x7f06001f
+			public const int listShortClick = 2131099679;
+			
 			// aapt resource value: 0x7f060013
 			public const int openDrawer = 2131099667;
 			
@@ -2157,9 +2199,6 @@ namespace Domotica
 			
 			// aapt resource value: 0x7f06001e
 			public const int sensorName2 = 2131099678;
-			
-			// aapt resource value: 0x7f06001f
-			public const int sensorShortClick = 2131099679;
 			
 			// aapt resource value: 0x7f060011
 			public const int status_bar_notification_info_overflow = 2131099665;

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="80dp"
+        android:weightSum="100"
+        android:padding="20sp">
+        <TextView
+            android:id="@+id/Time"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:textSize="20dp"
+            android:textColor="@color/my_textColorLight"
+            android:gravity="center" />
+        <TextView
+            android:id="@+id/timeSwitch"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="25"
+            android:textSize="20sp"
+            android:textColor="@color/my_textColorLight"
+            android:gravity="center" />
+        <TextView
+            android:id="@+id/timeSwitchState"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="25"
+            android:textSize="20sp"
+            android:textColor="@color/my_textColorLight"
+            android:gravity="center" />
+    </LinearLayout>
+</LinearLayout>

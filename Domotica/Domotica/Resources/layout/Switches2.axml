@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/my_windowBackground">
-    <TextView
+    android:background="@color/my_windowBackground"
+    android:minWidth="25px"
+    android:minHeight="25px">
+    <Switch
+        android:id="@+id/TimerCheckSwitch"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:textColor="@color/my_textColorLight"
-        android:text="Switches2"
-        android:layout_centerInParent="true" />
-</RelativeLayout>
+        android:text="Toggle timers"
+        android:padding="20sp"
+        android:background="@color/my_menuColor"
+        android:elevation="2dp" />
+    <ListView
+        android:id="@+id/TimerList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minWidth="25px"
+        android:minHeight="25sp"
+        android:background="@color/my_windowBackground" />
+</LinearLayout>

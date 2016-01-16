@@ -150,7 +150,7 @@ namespace Domotica
 
 		void MListview_ItemClick (object sender, AdapterView.ItemClickEventArgs e)
 		{
-			Toast.MakeText (this.Activity, Resource.String.sensorShortClick, ToastLength.Long).Show ();
+			Toast.MakeText (this.Activity, Resource.String.listShortClick, ToastLength.Long).Show ();
 		}
 
 		public override void OnCreateOptionsMenu (IMenu menu, MenuInflater inflater)
@@ -164,7 +164,12 @@ namespace Domotica
 			if (item.ItemId == Resource.Id.Add_Button)
 			{
 				if (GlobalVariables.IpAvailable)
-					entryAdd ();
+				{
+					if (mDataList.Count < 2)
+						entryAdd ();
+					else
+						entryLimitAlert ();		
+				}
 				else
 					noConnectionAlert();
 			}
@@ -211,6 +216,7 @@ namespace Domotica
 				alert.Show();
 			});
 		}
+
 		public void entryEdit(int index)
 		{
 			AlertDialog.Builder alert = new AlertDialog.Builder (this.Activity);
@@ -386,8 +392,8 @@ namespace Domotica
 		{
 			AlertDialog.Builder alert = new AlertDialog.Builder (this.Activity);
 			alert.SetTitle ("Wrong Mode Selected");
-			alert.SetMessage ("You are in the wrong mode to control the switches with this page.\n" +
-				"Please change modes to use this feature.");
+			alert.SetMessage ("You are in the wrong mode to use thresholds.\n" +
+				"Please change the mode to \"Threshold Mode\" to use this feature.");
 			alert.SetNeutralButton ("OK", (senderAlert, EventArgs) => {
 				alert.Dispose ();
 			});
@@ -419,6 +425,19 @@ namespace Domotica
 						mSensor2.Text = "";
 				});
 			}
+		}
+
+		public void entryLimitAlert()
+		{
+			AlertDialog.Builder alert = new AlertDialog.Builder (this.Activity);
+			alert.SetTitle ("Entry Limit");
+			alert.SetMessage ("You have reaced the maximum amount of entries.\n Please remove one or edit an existing entry");
+			alert.SetNeutralButton ("OK", (serderAlert, EventArgs) => {
+				alert.Dispose();
+			});
+			Activity.RunOnUiThread (() => {
+				alert.Show ();
+			});
 		}
 	}
 		

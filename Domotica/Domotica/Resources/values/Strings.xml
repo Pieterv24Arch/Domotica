@@ -16,7 +16,7 @@
 	<string name="FAQ">FAQ</string>
 	<string name="sensorName1">Temperature Sensor</string>
 	<string name="sensorName2">Light Sensor</string>
-	<string name="sensorShortClick">Hold Items to see options</string>
+	<string name="listShortClick">Hold Items to see options</string>
 	<string-array name="SensorNames">
 		<item>Temperature Sensor</item>
 		<item>Light Sensor</item>
@@ -36,6 +36,10 @@
 		<item>Switch Mode</item>
 		<item>Threshold Mode</item>
 		<item>Timer Mode</item>
+	</string-array>
+	<string-array name="Bools">
+		<item>On</item>
+		<item>Off</item>
 	</string-array>
 	<string name="HomeText">
 		<font size='16'> <b>Welcome to our home automation application. Click on the top left menu icon to open the menu or swipe to the right to open it.</b></font>\n

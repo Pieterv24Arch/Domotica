@@ -68,6 +68,7 @@
     <Compile Include="MySupportFragment.cs" />
     <Compile Include="fragments\Sensors1%28Deprecated%29.cs" />
     <Compile Include="Adapters\ListItems\TimerItem.cs" />
+    <Compile Include="Adapters\TimerListAdapter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -102,6 +103,8 @@
     <AndroidResource Include="Resources\layout\AddSensorLayout.axml" />
     <AndroidResource Include="Resources\layout\FAQ.axml" />
     <AndroidResource Include="Resources\layout\Sensors1.axml" />
+    <AndroidResource Include="Resources\layout\TimerItemView.axml" />
+    <AndroidResource Include="Resources\layout\TimerSensorLayout.axml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />
