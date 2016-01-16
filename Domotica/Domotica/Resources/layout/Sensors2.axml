@@ -116,6 +116,20 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/SensorThresholdList"
                 android:background="@color/my_windowBackground" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:minWidth="25px"
+                android:minHeight="80sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20sp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="random invisible text"
+                    android:textColor="@color/my_textColorLight"
+                    android:textSize="20sp" />
+            </LinearLayout>
         </LinearLayout>
         <LinearLayout
             android:orientation="vertical"

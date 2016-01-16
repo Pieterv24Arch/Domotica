@@ -78,7 +78,7 @@ namespace Domotica
 			mRefreshToggleSwitch.SetTextColor(Android.Graphics.Color.White);
 
 			mDataList = new List<SensorItem>();
-			//mDataList.Add (new SensorItem ()); //For Debuggin purposes
+			//mDataList.Add (new SensorItem ("",0,"",0,0,"",0,false)); //For Debuggin purposes
 
 			mListAdapter = new SensorListAdapter (this.Activity, mDataList);
 			mListview.Adapter = mListAdapter;
