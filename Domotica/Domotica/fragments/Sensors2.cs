@@ -156,7 +156,7 @@ namespace Domotica
 		public override void OnCreateOptionsMenu (IMenu menu, MenuInflater inflater)
 		{
 			base.OnCreateOptionsMenu (menu, inflater);
-			inflater.Inflate (Resource.Menu.action_menu, menu);
+			inflater.Inflate (Resource.Menu.add_menu, menu);
 		}
 
 		public override bool OnOptionsItemSelected (IMenuItem item)

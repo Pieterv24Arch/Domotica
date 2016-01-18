@@ -39,7 +39,7 @@ namespace Domotica
 		public override void OnCreate (Bundle savedInstanceState)
 		{
 			base.OnCreate (savedInstanceState);
-
+			HasOptionsMenu = true;
 		}
 
 		public override View OnCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -89,6 +89,12 @@ namespace Domotica
 				});
 			};
 			return view;
+		}
+
+		public override void OnCreateOptionsMenu (IMenu menu, MenuInflater inflater)
+		{
+			base.OnCreateOptionsMenu (menu, inflater);
+			inflater.Inflate (Resource.Menu.help_menu, menu);
 		}
 	}
 }

@@ -4,9 +4,10 @@
 
 #define tempPin   1
 #define lightPin  0 
+#define ledPin 9
 
 byte mac[] = {0x40, 0x6e, 0x9f, 0x06, 0xe4, 0x7a};
-IPAddress ip(192, 168, 4///'', 10);
+IPAddress ip(192, 168, 4, 10);
 RCSwitch mySwitch = RCSwitch();
 EthernetServer server(32545);
 bool connected = false;
@@ -20,6 +21,8 @@ void setup() {
   
   mySwitch.enableTransmit(5);
   setAll(0);
+
+  pinMode(9, OUTPUT);
 
   Ethernet.begin(mac, ip);
   Serial.print("Adress: ");
@@ -71,6 +74,7 @@ void loop() {
 
 void returnValues(EthernetClient client)
 {
+  digitalWrite(ledPin, HIGH);
   int tempPinValue = analogRead(tempPin);
   int lightPinValue = analogRead(lightPin);
   String valueString = String(tempPinValue);
@@ -80,10 +84,12 @@ void returnValues(EthernetClient client)
   client.print(valueString);
   //Serial.println("1024,945");
   //client.print("1024,945");
+  digitalWrite(ledPin, LOW);
 }
 
 void setSwitch(int adapter, int state)
 {
+  digitalWrite(ledPin, HIGH);
   Serial.print(String("Toggling switch "));
   Serial.print(adapter);
   Serial.print(" ");
@@ -94,10 +100,12 @@ void setSwitch(int adapter, int state)
   delay(100);
   mySwitch.send(Freq[adapter - 1][state], 24);
   delay(100);
+  digitalWrite(ledPin, LOW);
 }
 
 void setAll(int state)
 {
+  digitalWrite(ledPin, HIGH);
   for(int i = 0; i < 4; i++)
   {
     if(state == 0) States[i] = false;
@@ -107,10 +115,12 @@ void setAll(int state)
   delay(100);
   mySwitch.send(Freq[4][state], 24);
   delay(100);
+  digitalWrite(ledPin, LOW);
 }
 
 void returnStates(EthernetClient client)
 {
+  digitalWrite(ledPin, HIGH);
   String bools = "";
   for(int i = 0; i < 4; i++)
   {
@@ -122,5 +132,6 @@ void returnStates(EthernetClient client)
   }
   Serial.println(bools);
   client.print(bools);
+  digitalWrite(ledPin, LOW);
 }
 

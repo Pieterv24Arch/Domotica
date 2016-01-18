@@ -28,8 +28,7 @@ namespace Domotica
 		{
 			base.OnCreate (savedInstanceState);
 
-			// Create your fragment here
-
+			HasOptionsMenu = true;
 			GlobalVariables.Mode = "Switch Mode";
 		}
 
@@ -53,6 +52,13 @@ namespace Domotica
 		{
 			GlobalVariables.Mode = mModeSpinner.SelectedItem.ToString();
 		}
+
+		public override void OnCreateOptionsMenu (IMenu menu, MenuInflater inflater)
+		{
+			base.OnCreateOptionsMenu (menu, inflater);
+			inflater.Inflate (Resource.Menu.help_menu, menu);
+		}
 	}
+		
 }
 

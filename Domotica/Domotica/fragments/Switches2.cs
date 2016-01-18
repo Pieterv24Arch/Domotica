@@ -11,6 +11,7 @@ using Android.Runtime;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
+using System.Timers;
 
 namespace Domotica
 {
@@ -24,6 +25,7 @@ namespace Domotica
 		//Variables
 		ListView mTimerList;
 		Switch mTimerToggle;
+		Timer mTimer;
 
 		List<TimerItem> mTimerData;
 
@@ -36,6 +38,10 @@ namespace Domotica
 		{
 			base.OnCreate (savedInstanceState);
 			HasOptionsMenu = true;
+
+			mTimer = new Timer ();
+			mTimer.Interval = 1000;
+			mTimer.Elapsed = new ElapsedEventHandler (Timer_Tick);
 			// Create your fragment here
 		}
 
@@ -95,7 +101,7 @@ namespace Domotica
 		public override void OnCreateOptionsMenu (IMenu menu, MenuInflater inflater)
 		{
 			base.OnCreateOptionsMenu (menu, inflater);
-			inflater.Inflate (Resource.Menu.action_menu, menu);
+			inflater.Inflate (Resource.Menu.add_menu, menu);
 		}
 
 		public override bool OnOptionsItemSelected (IMenuItem item)
@@ -137,6 +143,11 @@ namespace Domotica
 			Activity.RunOnUiThread (() => {
 				alert.Show();
 			});
+		}
+
+		public void Timer_Tick(object sender, ElapsedEventArgs e)
+		{
+
 		}
 
 		//Show alert for no connection detected

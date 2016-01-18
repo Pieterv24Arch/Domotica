@@ -38,8 +38,7 @@ namespace Domotica
 		public override void OnCreate (Bundle savedInstanceState)
 		{
 			base.OnCreate (savedInstanceState);
-
-			// Create your fragment here
+			HasOptionsMenu = true;
 		}
 
 		public override View OnCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -211,6 +210,12 @@ namespace Domotica
 			Activity.RunOnUiThread (() => {
 				alert.Show();
 			});
+		}
+
+		public override void OnCreateOptionsMenu (IMenu menu, MenuInflater inflater)
+		{
+			base.OnCreateOptionsMenu (menu, inflater);
+			inflater.Inflate (Resource.Menu.help_menu, menu);
 		}
 	}
 }

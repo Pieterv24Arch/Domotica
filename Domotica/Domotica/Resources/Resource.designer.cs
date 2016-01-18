@@ -1391,7 +1391,10 @@ namespace Domotica
 			public const int ic_add_white_48dp = 2130837563;
 			
 			// aapt resource value: 0x7f02003c
-			public const int notification_template_icon_bg = 2130837564;
+			public const int ic_help_outline_white_48dp = 2130837564;
+			
+			// aapt resource value: 0x7f02003d
+			public const int notification_template_icon_bg = 2130837565;
 			
 			static Drawable()
 			{
@@ -1429,6 +1432,9 @@ namespace Domotica
 			
 			// aapt resource value: 0x7f0c0056
 			public const int Connection_Text = 2131492950;
+			
+			// aapt resource value: 0x7f0c0098
+			public const int HelpButton = 2131493016;
 			
 			// aapt resource value: 0x7f0c0061
 			public const int ModeSpinner = 2131492961;
@@ -2070,7 +2076,10 @@ namespace Domotica
 		{
 			
 			// aapt resource value: 0x7f0e0000
-			public const int action_menu = 2131623936;
+			public const int add_menu = 2131623936;
+			
+			// aapt resource value: 0x7f0e0001
+			public const int help_menu = 2131623937;
 			
 			static Menu()
 			{

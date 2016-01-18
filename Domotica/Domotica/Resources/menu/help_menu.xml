@@ -4,8 +4,8 @@
       xmlns:myapp="http://schemas.android.com/apk/res-auto">
      
 	<item android:id="@+id/Add_Button"
-		android:icon="@drawable/ic_add_white_48dp"
-		android:title="Add_Button"
+		android:icon="@drawable/ic_help_outline_white_48dp"
+		android:title="Help_Button"
 		myapp:showAsAction="always" />
 
 </menu>
