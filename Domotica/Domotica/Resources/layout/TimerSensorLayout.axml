@@ -26,7 +26,8 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:maxLength="2"
-            android:layout_weight="50" />
+            android:layout_weight="50"
+            android:gravity="center" />
         <EditText
             android:id="@+id/TimeMinuteField"
             android:layout_width="0dp"
@@ -36,7 +37,8 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:maxLength="2"
-            android:layout_weight="50" />
+            android:layout_weight="50"
+            android:gravity="center" />
     </LinearLayout>
     <TextView
         android:layout_below="@id/nonsensething1"

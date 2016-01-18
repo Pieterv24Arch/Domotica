@@ -79,4 +79,21 @@
 		\n
 
 	</string>
+	<string name="SwitchHelp">
+		With this page you can control the sockets with the switches.\n
+		\nPlease be sure to connect to the Arduino and select the \"Switch Mode\" on the modes page.
+		\nTo sync the states of the switches with the states of the sockets press the \"Refresh Switches\" button.
+	</string>
+	<string name="SensorsHelp">
+		
+	</string>
+	<string name="TimersHelp">
+		
+	</string>
+	<string name="ConnectionHelp">
+		
+	</string>
+	<string name="ModesHelp">
+
+	</string>
 </resources>

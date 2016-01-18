@@ -173,7 +173,25 @@ namespace Domotica
 				else
 					noConnectionAlert();
 			}
+			if (item.ItemId == Resource.Id.Help_Button) {
+				AlertDialog.Builder alert = new AlertDialog.Builder (this.Activity);
+				LayoutInflater inflater = this.GetLayoutInflater (null);
+				View dialogView = inflater.Inflate (Resource.Layout.HelpHolder, null);
+				alert.SetTitle ("Help");
+				alert.SetView (dialogView);
 
+				TextView helpText = dialogView.FindViewById<TextView> (Resource.Id.Help_Text);
+
+				helpText.Text = GetString (Resource.String.SwitchHelp);
+
+				alert.SetNeutralButton ("Close", (senderAlert, EventArgs) => {
+					alert.Dispose ();
+				});
+
+				Activity.RunOnUiThread (() => {
+					alert.Show ();
+				});
+			}
 			return base.OnOptionsItemSelected (item);
 		}
 

@@ -107,6 +107,7 @@
     <AndroidResource Include="Resources\menu\help_menu.xml" />
     <AndroidResource Include="Resources\menu\add_menu.xml" />
     <AndroidResource Include="Resources\layout\AddSensorLayout.axml" />
+    <AndroidResource Include="Resources\layout\HelpHolder.axml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />

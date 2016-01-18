@@ -14,7 +14,7 @@
             android:id="@+id/Time"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="50"
+            android:layout_weight="30"
             android:textSize="20dp"
             android:textColor="@color/my_textColorLight"
             android:gravity="center" />
@@ -22,7 +22,7 @@
             android:id="@+id/timeSwitch"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="25"
+            android:layout_weight="45"
             android:textSize="20sp"
             android:textColor="@color/my_textColorLight"
             android:gravity="center" />

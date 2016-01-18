@@ -3,7 +3,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:myapp="http://schemas.android.com/apk/res-auto">
      
-	<item android:id="@+id/Add_Button"
+	<item android:id="@+id/Help_Button"
 		android:icon="@drawable/ic_help_outline_white_48dp"
 		android:title="Help_Button"
 		myapp:showAsAction="always" />
