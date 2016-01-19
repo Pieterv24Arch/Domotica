@@ -68,6 +68,8 @@
     <Compile Include="MySupportFragment.cs" />
     <Compile Include="Adapters\ListItems\TimerItem.cs" />
     <Compile Include="Adapters\TimerListAdapter.cs" />
+    <Compile Include="fragments\CountDown.cs" />
+    <Compile Include="Adapters\ListItems\CountdownItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -99,7 +101,6 @@
     <AndroidResource Include="Resources\drawable\ic_add_white_48dp.png" />
     <AndroidResource Include="Resources\layout\SensorItemView.axml" />
     <AndroidResource Include="Resources\layout\FAQ.axml" />
-    <AndroidResource Include="Resources\layout\Sensors1.axml" />
     <AndroidResource Include="Resources\layout\TimerItemView.axml" />
     <AndroidResource Include="Resources\layout\TimerSensorLayout.axml" />
     <AndroidResource Include="Resources\drawable\ic_help_outline_white_48dp.png" />
@@ -107,6 +108,7 @@
     <AndroidResource Include="Resources\menu\add_menu.xml" />
     <AndroidResource Include="Resources\layout\AddSensorLayout.axml" />
     <AndroidResource Include="Resources\layout\HelpHolder.axml" />
+    <AndroidResource Include="Resources\layout\CountDown.axml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />

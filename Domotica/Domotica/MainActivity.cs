@@ -68,7 +68,6 @@ namespace Domotica
 			mHome = new Home();
 			mSwitches1 = new Switches1 ();
 			mSwitches2 = new Switches2 ();
-			//mSensors1 = new Sensors1 ();
 			mSensors2 = new Sensors2 ();
 			mConnection1 = new Connection1 ();
 			mMode1 = new Mode1 ();
