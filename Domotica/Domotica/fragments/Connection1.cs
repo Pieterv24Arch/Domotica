@@ -108,7 +108,7 @@ namespace Domotica
 
 				TextView helpText = dialogView.FindViewById<TextView> (Resource.Id.Help_Text);
 
-				helpText.Text = GetString (Resource.String.Connection);
+				helpText.Text = GetString (Resource.String.ConnectionHelp);
 
 				alert.SetNeutralButton ("Close", (senderAlert, EventArgs) => {
 					alert.Dispose ();

@@ -85,15 +85,42 @@
 		\nTo sync the states of the switches with the states of the sockets press the \"Refresh Switches\" button.
 	</string>
 	<string name="SensorsHelp">
-		
+		With this page you can read the values of the sensors and set thresholds for the sensor values.\n
+		\n<b>Reading Sensor values</b>\n
+		\nMake Sure you\'re in \"Threshold Mode\".
+		\nPress Refresh Sensors to refresh the sensor values once.
+		\nPress Toggle Refresh to toggle the sensor refresh on a timer.\n
+		\n<b>Set Thresholds</b>\n
+		\nPress the plus sign in the top right next to the questionmark.
+		\n- Select Sensor
+		\n- Choose if value should be higher or lower
+		\n- Enter value
+		\n- Choose what switch should be toggled if condition is true\n
+		\nNote: Thresholds only work if \"Threshold Mode\" is selected and Toggle Refresh is on.
 	</string>
 	<string name="TimersHelp">
-		
+		With this page you can set a time on with a switch should be toggled.
+		\nFor this feature to work make sure \"Timer Mode\" is selected.\n
+		\n<b>To add a Time</b>\n
+		\nPress the plus sign in the top right next to the questionmark.
+		\n- Enter a time(24h clock)
+		\n- Select what switch should be toggled
+		\n- Select to what state the switch should toggle
+		\n
 	</string>
 	<string name="ConnectionHelp">
-		
+		With this page you can establish a connecion with the arduino.
+		\nEnter the ip (default is 192.168.4.10) and the port number(default is 32545).
+		\nThe message on the page will change accoardingly to a failed or succesful connection.\n
+		\nNote: You need a connection with the aruino to be able to use features in this app.
+		\n
 	</string>
 	<string name="ModesHelp">
-
+		With this page you can choose an mode. The mode indicates what features of the app are active.\n
+		\n<b>Modes</b>
+		\n- Switch Mode: Use switches to toggle the sockets manualy.
+		\n- Thershold Mode: Set thresholds for sensor values.
+		\n- Timer Mode: Set a time on with the socket should be toggled.
+		\n
 	</string>
 </resources>
