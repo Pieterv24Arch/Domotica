@@ -70,6 +70,7 @@
     <Compile Include="Adapters\TimerListAdapter.cs" />
     <Compile Include="fragments\CountDown.cs" />
     <Compile Include="Adapters\ListItems\CountdownItem.cs" />
+    <Compile Include="Adapters\CountdownListAdapter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -109,6 +110,11 @@
     <AndroidResource Include="Resources\layout\AddSensorLayout.axml" />
     <AndroidResource Include="Resources\layout\HelpHolder.axml" />
     <AndroidResource Include="Resources\layout\CountDown.axml" />
+    <AndroidResource Include="Resources\layout\CountdownItemView.axml" />
+    <AndroidResource Include="Resources\drawable\ic_play_arrow_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_stop_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_pause_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable\ic_replay_black_24dp.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />

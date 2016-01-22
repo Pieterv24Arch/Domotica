@@ -16,7 +16,7 @@ namespace Domotica
 {
 	public class CountDown : MySupportFragment
 	{
-		//List<TimerItem> 
+		List<CountdownItem> mDataList; 
 
 		public override void OnCreate (Bundle savedInstanceState)
 		{
@@ -29,28 +29,28 @@ namespace Domotica
 		{
 			// Use this to return your custom view for this Fragment
 			// return inflater.Inflate(Resource.Layout.YourFragment, container, false);
-			inflater.Inflate(Resource.Layout.CountDown);
+			View view = inflater.Inflate(Resource.Layout.FAQ, container, false);
 
-
-			return base.OnCreateView (inflater, container, savedInstanceState);
+			return view;
 		}
 
 		public override void OnCreateOptionsMenu (IMenu menu, MenuInflater inflater)
 		{
-			inflater.Inflate (Resource.Menu.add_menu);
+			inflater.Inflate (Resource.Menu.add_menu, menu);
 			base.OnCreateOptionsMenu (menu, inflater);
 		}
 
-		public override bool OnOptionsItemSelected (IMenuItem item)
+		/*public override bool OnOptionsItemSelected (IMenuItem item)
 		{
 			if (item.ItemId == Resource.Id.Add_Button)
 			{
 				if (GlobalVariables.IpAvailable)
 				{
 					if (mDataList.Count < 2)
-						entryAdd ();
+						//entryAdd ();
 					else
-						entryLimitAlert ();		
+						
+						//entryLimitAlert ();		
 				}
 				else
 					noConnectionAlert();
@@ -75,7 +75,7 @@ namespace Domotica
 				});
 			}
 			return base.OnOptionsItemSelected (item);
-		}
+		}*/
 
 		//Show alert for no connection detected
 		public void noConnectionAlert()

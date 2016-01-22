@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="80dp"
+        android:weightSum="100"
+        android:padding="20sp">
+        <TextView
+            android:id="@+id/Time"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="20"
+            android:textSize="20dp"
+            android:textColor="@color/my_textColorLight"
+            android:gravity="center" />
+        <TextView
+            android:id="@+id/timeSwitch"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="30"
+            android:textSize="20sp"
+            android:textColor="@color/my_textColorLight"
+            android:gravity="center" />
+        <TextView
+            android:id="@+id/timeSwitchState"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="20"
+            android:textSize="20sp"
+            android:textColor="@color/my_textColorLight"
+            android:gravity="center" />
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_play_arrow_black_24dp"
+            android:layout_weight="10"
+            android:id="@+id/PlayPauseToggleButton" />
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_stop_black_24dp"
+            android:layout_weight="10"
+            android:id="@+id/StopTimerButton" />
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_replay_black_24dp"
+            android:layout_weight="10"
+            android:id="@+id/ResetTimerButton" />
+    </LinearLayout>
+</LinearLayout>

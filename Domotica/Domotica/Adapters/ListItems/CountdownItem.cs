@@ -3,7 +3,7 @@ using Android.Text.Format;
 
 namespace Domotica
 {
-	public class TimerItem
+	public class CountdownItem
 	{
 		public DateTime mTime;
 		public String mSwitch;
@@ -11,7 +11,7 @@ namespace Domotica
 		public bool mSwitchState;
 		public int mSwitchStatei;
 
-		public TimerItem (DateTime setTime, string setSwitch, int setSwitchi, bool setSwitchState, int setSwitchStatei)
+		public CountdownItem (DateTime setTime, string setSwitch, int setSwitchi, bool setSwitchState, int setSwitchStatei)
 		{
 			mTime = setTime;
 			mSwitch = setSwitch;
