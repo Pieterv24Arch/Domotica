@@ -27,12 +27,12 @@ namespace Domotica
 		private EditText mPortField;
 		private TextView mConnection_Text;
 
+		List<EditText> ipFields;
+
 		public Connection1 ()
 		{
 			this.title = Resource.String.Connection;
 		}
-
-		List<EditText> ipFields;
 
 		private ConnectionProtocol connect = new ConnectionProtocol();
 
@@ -76,13 +76,15 @@ namespace Domotica
 				//set Global IpAddress variable equal to the text in the ipField
 				GlobalVariables.IPAddress = string.Format("{0}.{1}.{2}.{3}",mIpField1.Text, mIpField2.Text, mIpField3.Text, mIpField4.Text);
 				//Check if the portnumber is in fact a number
+				if(mPortField.Text == "")
+					mPortField.Text = "0";
 				int.TryParse(mPortField.Text, out tempIntContainer);
 				GlobalVariables.PortAddress = tempIntContainer;
 				//show text refreshing... in the fragment
 				mConnection_Text.Text = "Refreshing...";
 				//Que connectiontest and updating text accoardingly
 				ThreadPool.QueueUserWorkItem(args => {
-					connect.TestConnection(mConnection_Text);
+					connect.TestConnection();
 					Activity.RunOnUiThread(() => {
 						mConnection_Text.Text = GlobalVariables.IpAvailable ? "Connection Succesful" : "Connection Failed";
 					});
@@ -91,12 +93,14 @@ namespace Domotica
 			return view;
 		}
 
+		//Code to create help button
 		public override void OnCreateOptionsMenu (IMenu menu, MenuInflater inflater)
 		{
 			base.OnCreateOptionsMenu (menu, inflater);
 			inflater.Inflate (Resource.Menu.help_menu, menu);
 		}
 
+		//Show help menu
 		public override bool OnOptionsItemSelected (IMenuItem item)
 		{
 			if (item.ItemId == Resource.Id.Help_Button) {

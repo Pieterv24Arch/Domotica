@@ -3,73 +3,90 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:minWidth="300dp">
-    <TextView
-        android:id="@+id/nonsensetext1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Time &lt;HH:MM&gt;"
-        android:layout_marginLeft="10dp" />
-    <LinearLayout
-        android:id="@+id/nonsensething1"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/nonsensetext1"
-        android:padding="10sp"
-        android:weightSum="99">
-        <EditText
-            android:id="@+id/TimeHourField"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:maxLength="2"
-            android:layout_weight="50"
-            android:gravity="center" />
-        <EditText
-            android:id="@+id/TimeMinuteField"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:maxLength="2"
-            android:layout_weight="50"
-            android:gravity="center" />
-    </LinearLayout>
-    <TextView
-        android:layout_below="@id/nonsensething1"
-        android:id="@+id/nonsensetext2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Switch"
-        android:layout_marginLeft="10dp" />
-    <Spinner
-        android:layout_below="@id/nonsensetext2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/TimerSwitchNameSpinner"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:entries="@array/Switches" />
-    <TextView
-        android:layout_below="@id/TimerSwitchNameSpinner"
-        android:id="@+id/nonsensetext3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Toggle Switch"
-        android:layout_marginLeft="10dp" />
-    <Spinner
-        android:layout_below="@id/nonsensetext3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/TimerStateSpinner"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:entries="@array/Bools" />
+    <ScrollView
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:minWidth="25px"
+            android:minHeight="25px">
+            <TextView
+                android:id="@+id/nonsensetext1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Time"
+                android:layout_marginLeft="10dp" />
+            <LinearLayout
+                android:id="@+id/nonsensething1"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/nonsensetext1"
+                android:padding="10sp"
+                android:weightSum="99">
+            <!--<EditText
+		            android:id="@+id/TimeHourField"
+		            android:layout_width="0dp"
+		            android:layout_height="wrap_content"
+		            android:inputType="number"
+		            android:layout_marginBottom="10dp"
+		            android:layout_marginLeft="20dp"
+		            android:layout_marginRight="20dp"
+		            android:maxLength="2"
+		            android:layout_weight="50"
+		            android:gravity="center" />
+		        <EditText
+		            android:id="@+id/TimeMinuteField"
+		            android:layout_width="0dp"
+		            android:layout_height="wrap_content"
+		            android:inputType="number"
+		            android:layout_marginBottom="10dp"
+		            android:layout_marginLeft="20dp"
+		            android:layout_marginRight="20dp"
+		            android:maxLength="2"
+		            android:layout_weight="50"
+		            android:gravity="center" />-->
+                <TimePicker
+                    android:id="@+id/timePicker1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+            <TextView
+                android:layout_below="@id/nonsensething1"
+                android:id="@+id/nonsensetext2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Switch"
+                android:layout_marginLeft="10dp" />
+            <Spinner
+                android:layout_below="@id/nonsensetext2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/TimerSwitchNameSpinner"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:entries="@array/Switches" />
+            <TextView
+                android:layout_below="@id/TimerSwitchNameSpinner"
+                android:id="@+id/nonsensetext3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Toggle Switch"
+                android:layout_marginLeft="10dp" />
+            <Spinner
+                android:layout_below="@id/nonsensetext3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/TimerStateSpinner"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:entries="@array/Bools" />
+        </LinearLayout>
+    </ScrollView>
 </RelativeLayout>

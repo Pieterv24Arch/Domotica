@@ -21,7 +21,7 @@ namespace Domotica
 		}
 		//Test if valid connection to arduino is available by pinging it
 		//Result is written to global variable
-		public void TestConnection(TextView text)
+		public void TestConnection()
 		{
 			try {
 				Ping p = new Ping ();

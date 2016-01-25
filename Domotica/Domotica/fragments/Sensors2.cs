@@ -163,15 +163,10 @@ namespace Domotica
 		{
 			if (item.ItemId == Resource.Id.Add_Button)
 			{
-				if (GlobalVariables.IpAvailable)
-				{
-					if (mDataList.Count < 2)
-						entryAdd ();
-					else
-						entryLimitAlert ();		
-				}
+				if (mDataList.Count < 2)
+					entryAdd ();
 				else
-					noConnectionAlert();
+					entryLimitAlert ();	
 			}
 			if (item.ItemId == Resource.Id.Help_Button) {
 				AlertDialog.Builder alert = new AlertDialog.Builder (this.Activity);
@@ -212,23 +207,19 @@ namespace Domotica
 				alert.Dispose();
 			});
 			alert.SetPositiveButton ("Add", (senderAlert, EventArgs) => {
-				//If connection is available add entry
-				if(GlobalVariables.IpAvailable)
-				{
-					int tempValue;
-					if(mValue.Text == "") tempValue = 0;
-					else tempValue = Convert.ToInt16(mValue.Text);
-					mDataList.Add(new SensorItem(
-						mSensorName.SelectedItem.ToString(),
-						mSensorName.SelectedItemPosition,
-						mRelation.SelectedItem.ToString(),
-						mRelation.SelectedItemPosition,
-						tempValue,
-						mSwitch.SelectedItem.ToString(),
-						mSwitch.SelectedItemPosition));
-					//notify listview that values have changed
-					mListAdapter.NotifyDataSetChanged();
-				}
+				int tempValue;
+				if(mValue.Text == "") tempValue = 0;
+				else tempValue = Convert.ToInt16(mValue.Text);
+				mDataList.Add(new SensorItem(
+					mSensorName.SelectedItem.ToString(),
+					mSensorName.SelectedItemPosition,
+					mRelation.SelectedItem.ToString(),
+					mRelation.SelectedItemPosition,
+					tempValue,
+					mSwitch.SelectedItem.ToString(),
+					mSwitch.SelectedItemPosition));
+				//notify listview that values have changed
+				mListAdapter.NotifyDataSetChanged();
 			});
 			Activity.RunOnUiThread (() => {
 				alert.Show();
@@ -257,22 +248,19 @@ namespace Domotica
 				alert.Dispose();
 			});
 			alert.SetPositiveButton ("Confirm", (senderAlert, EventArgs) => {
-				if(GlobalVariables.IpAvailable)
-				{
-					int tempValue;
-					if(mValue.Text == "") tempValue = 0;
-					else tempValue = Convert.ToInt16(mValue.Text);
-					mDataList[index] = new SensorItem(
-						mSensorName.SelectedItem.ToString(),
-						mSensorName.SelectedItemPosition,
-						mRelation.SelectedItem.ToString(),
-						mRelation.SelectedItemPosition,
-						tempValue,
-						mSwitch.SelectedItem.ToString(),
-						mSwitch.SelectedItemPosition);
-					//notify listview that data has changed
-					mListAdapter.NotifyDataSetChanged();
-				}
+				int tempValue;
+				if(mValue.Text == "") tempValue = 0;
+				else tempValue = Convert.ToInt16(mValue.Text);
+				mDataList[index] = new SensorItem(
+					mSensorName.SelectedItem.ToString(),
+					mSensorName.SelectedItemPosition,
+					mRelation.SelectedItem.ToString(),
+					mRelation.SelectedItemPosition,
+					tempValue,
+					mSwitch.SelectedItem.ToString(),
+					mSwitch.SelectedItemPosition);
+				//notify listview that data has changed
+				mListAdapter.NotifyDataSetChanged();
 			});
 			Activity.RunOnUiThread (() => {
 				alert.Show();
@@ -373,10 +361,10 @@ namespace Domotica
 
 		public void Timer_Tick(object sender, ElapsedEventArgs e)
 		{
+			string[] tempString = getSensorValue ();
+			updateTextView (tempString);
 			if (GlobalVariables.Mode == "Threshold Mode")
 			{
-				string[] tempString = getSensorValue ();
-				updateTextView (tempString);
 				if (mDataList.Count > 0)
 				{
 					checkEntries (tempString);

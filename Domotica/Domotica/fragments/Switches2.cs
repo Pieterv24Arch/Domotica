@@ -27,6 +27,8 @@ namespace Domotica
 		Switch mTimerToggle;
 		Timer mTimer;
 
+		bool backgroundChange = false;
+
 		List<TimerItem> mTimerData;
 
 		TimerListAdapter mlistAdapter;
@@ -72,7 +74,7 @@ namespace Domotica
 
 		void MTimerToggle_CheckedChange (object sender, CompoundButton.CheckedChangeEventArgs e)
 		{
-			if (GlobalVariables.IpAvailable && GlobalVariables.Mode == "Timer Mode" && mTimerData.Count > 0)
+			if (GlobalVariables.IpAvailable && GlobalVariables.Mode == "Timer Mode" && mTimerData.Count > 0 && !backgroundChange)
 			{
 				if (e.IsChecked)
 					mTimer.Enabled = true;
@@ -80,7 +82,9 @@ namespace Domotica
 					mTimer.Enabled = false;
 			} else
 			{
+				backgroundChange = true;
 				mTimerToggle.Checked = false;
+				backgroundChange = false;
 				mTimer.Enabled = false;
 				if (!GlobalVariables.IpAvailable)
 					noConnectionAlert ();
@@ -130,13 +134,8 @@ namespace Domotica
 		{
 			if (item.ItemId == Resource.Id.Add_Button)
 			{
-				if (GlobalVariables.IpAvailable)
-				{
-					//Add Timer
-					entryAdd();
-				}
-				else
-					noConnectionAlert();
+				//add an timer entry
+				entryAdd ();
 			}
 			if (item.ItemId == Resource.Id.Help_Button) {
 				AlertDialog.Builder alert = new AlertDialog.Builder (this.Activity);
@@ -168,36 +167,34 @@ namespace Domotica
 			alert.SetTitle ("Add Entry");
 			alert.SetView (dialogView);
 
-			EditText hourField = dialogView.FindViewById<EditText> (Resource.Id.TimeHourField);
-			EditText minuteField = dialogView.FindViewById<EditText> (Resource.Id.TimeMinuteField);
+			TimePicker timerPicker = dialogView.FindViewById<TimePicker> (Resource.Id.timePicker1);
+			//EditText hourField = dialogView.FindViewById<EditText> (Resource.Id.TimeHourField);
+			//EditText minuteField = dialogView.FindViewById<EditText> (Resource.Id.TimeMinuteField);
 			Spinner switchIdentity = dialogView.FindViewById<Spinner> (Resource.Id.TimerSwitchNameSpinner);
 			Spinner switchState = dialogView.FindViewById<Spinner> (Resource.Id.TimerStateSpinner);
+
+			timerPicker.SetIs24HourView(new Java.Lang.Boolean(true));
 
 			alert.SetNeutralButton ("Cancel", (senderAlert, EventArgs) => {
 				alert.Dispose();
 			});
 			alert.SetPositiveButton ("Add", (senderAlert, EventArgs) => {
-				//If connection is available add entry
-				if(GlobalVariables.IpAvailable)
-				{
-					
-					int hours;
-					int minutes;
-					int.TryParse(hourField.Text, out hours);
-					int.TryParse(minuteField.Text, out minutes);
-					bool state = ((switchState.SelectedItem.ToString() == "On") ? true : false);
-					//Get data from view and add it to list item
-					mTimerData.Add(new TimerItem(
-						new DateTime(1,1,1,hours, minutes, 0), 
-						switchIdentity.SelectedItem.ToString(), 
-						switchIdentity.SelectedItemPosition, 
-						state,
-						switchState.SelectedItemPosition));
+				int hours = timerPicker.CurrentHour.IntValue();
+				int minutes =  timerPicker.CurrentMinute.IntValue();
+				//int.TryParse(hourField.Text, out hours);
+				//int.TryParse(minuteField.Text, out minutes);
+				bool state = ((switchState.SelectedItem.ToString() == "On") ? true : false);
+				//Get data from view and add it to list item
+				mTimerData.Add(new TimerItem(
+					new DateTime(1,1,1,hours, minutes, 0), 
+					switchIdentity.SelectedItem.ToString(), 
+					switchIdentity.SelectedItemPosition, 
+					state,
+					switchState.SelectedItemPosition));
 
 
-					//notify listview that values have changed
-					mlistAdapter.NotifyDataSetChanged();
-				}
+				//notify listview that values have changed
+				mlistAdapter.NotifyDataSetChanged();
 			});
 			Activity.RunOnUiThread (() => {
 				alert.Show();
@@ -212,13 +209,16 @@ namespace Domotica
 			alert.SetTitle ("Add Entry");
 			alert.SetView (dialogView);
 
-			EditText hourField = dialogView.FindViewById<EditText> (Resource.Id.TimeHourField);
-			EditText minuteField = dialogView.FindViewById<EditText> (Resource.Id.TimeMinuteField);
+			TimePicker timerPicker = dialogView.FindViewById<TimePicker> (Resource.Id.timePicker1);
+			//EditText hourField = dialogView.FindViewById<EditText> (Resource.Id.TimeHourField);
+			//EditText minuteField = dialogView.FindViewById<EditText> (Resource.Id.TimeMinuteField);
 			Spinner switchIdentity = dialogView.FindViewById<Spinner> (Resource.Id.TimerSwitchNameSpinner);
 			Spinner switchState = dialogView.FindViewById<Spinner> (Resource.Id.TimerStateSpinner);
 
-			hourField.Text = mTimerData [index].mTime.Hour.ToString();
-			minuteField.Text = mTimerData [index].mTime.Minute.ToString();
+			timerPicker.SetIs24HourView(new Java.Lang.Boolean(true));
+
+			timerPicker.CurrentHour = new Java.Lang.Integer(mTimerData [index].mTime.Hour);
+			timerPicker.CurrentHour = new Java.Lang.Integer (mTimerData [index].mTime.Hour);
 			switchIdentity.SetSelection(mTimerData [index].mSwitchi);
 			switchState.SetSelection(mTimerData [index].mSwitchStatei);
 
@@ -226,27 +226,20 @@ namespace Domotica
 				alert.Dispose();
 			});
 			alert.SetPositiveButton ("Edit", (senderAlert, EventArgs) => {
-				//If connection is available add entry
-				if(GlobalVariables.IpAvailable)
-				{
-
-					int hours;
-					int minutes;
-					int.TryParse(hourField.Text, out hours);
-					int.TryParse(minuteField.Text, out minutes);
-					bool state = ((switchState.SelectedItem.ToString() == "On") ? true : false);
-					//Get data from view and add it to list item
-					mTimerData[index] = (new TimerItem(
-						new DateTime(1,1,1,hours, minutes, 0), 
-						switchIdentity.SelectedItem.ToString(), 
-						switchIdentity.SelectedItemPosition, 
-						state,
-						switchState.SelectedItemPosition));
-
-
+				int hours = timerPicker.CurrentHour.IntValue();
+				int minutes =  timerPicker.CurrentHour.IntValue();
+				//int.TryParse(hourField.Text, out hours);
+				//int.TryParse(minuteField.Text, out minutes);
+				bool state = ((switchState.SelectedItem.ToString() == "On") ? true : false);
+				//Get data from view and add it to list item
+				mTimerData[index] = (new TimerItem(
+					new DateTime(1,1,1,hours, minutes, 0), 
+					switchIdentity.SelectedItem.ToString(), 
+					switchIdentity.SelectedItemPosition, 
+					state,
+					switchState.SelectedItemPosition));
 					//notify listview that values have changed
-					mlistAdapter.NotifyDataSetChanged();
-				}
+				mlistAdapter.NotifyDataSetChanged();
 			});
 			Activity.RunOnUiThread (() => {
 				alert.Show();

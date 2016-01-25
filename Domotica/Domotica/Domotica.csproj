@@ -64,7 +64,6 @@
     <Compile Include="MyActionBarDrawerToggle%28deprecated%29.cs" />
     <Compile Include="Adapters\SensorListAdapter.cs" />
     <Compile Include="Adapters\ListItems\SensorItem.cs" />
-    <Compile Include="fragments\FAQ.cs" />
     <Compile Include="MySupportFragment.cs" />
     <Compile Include="Adapters\ListItems\TimerItem.cs" />
     <Compile Include="Adapters\TimerListAdapter.cs" />
@@ -98,8 +97,6 @@
     <AndroidResource Include="Resources\anim\second_slide_out.xml" />
     <AndroidResource Include="Resources\drawable\ic_add_white_48dp.png" />
     <AndroidResource Include="Resources\layout\SensorItemView.axml" />
-    <AndroidResource Include="Resources\layout\FAQ.axml" />
-    <AndroidResource Include="Resources\layout\Sensors1.axml" />
     <AndroidResource Include="Resources\layout\TimerItemView.axml" />
     <AndroidResource Include="Resources\layout\TimerSensorLayout.axml" />
     <AndroidResource Include="Resources\drawable\ic_help_outline_white_48dp.png" />

@@ -45,7 +45,6 @@ namespace Domotica
 		private Sensors2 mSensors2;
 		private Connection1 mConnection1;
 		private Mode1 mMode1;
-		private FAQ mFAQ;
 
 		//Stack to keep track of what fragments have been shown. 
 		//Is used for the back button
@@ -72,7 +71,6 @@ namespace Domotica
 			mSensors2 = new Sensors2 ();
 			mConnection1 = new Connection1 ();
 			mMode1 = new Mode1 ();
-			mFAQ = new FAQ ();
 
 			//create stack
 			mStackFragment = new Stack<MySupportFragment> ();
@@ -91,9 +89,6 @@ namespace Domotica
 
 			trans.Add (Resource.Id.fragmentContainter, mMode1, "Mode1");
 			trans.Hide (mMode1);
-
-			trans.Add (Resource.Id.fragmentContainter, mFAQ, "FAQ");
-			trans.Hide (mFAQ);
 
 			trans.Add (Resource.Id.fragmentContainter, mConnection1, "Connection1");
 			trans.Hide (mConnection1);
@@ -118,7 +113,7 @@ namespace Domotica
 			mCurrentFragment = mHome;
 
 			//Set Strings to populate the listview of the navigation drawer
-			mDrawerData = new List<string> () {"Home", "Switches", "Sensors", /*"Sensor Threshold",*/ "Timers","Connection", "FAQ", "Modes"};
+			mDrawerData = new List<string> () {"Home", "Switches", "Sensors", "Timers","Connection", "Modes"};
 			//Set adaper to show these in the listview. The resource.layout.mytextview is the place that the adapter uses to create each list item
 			mAdapter = new ArrayAdapter<string> (this, Resource.Layout.mytextview, mDrawerData);
 			//set adapter drawer to the one just created
@@ -207,9 +202,6 @@ namespace Domotica
 					changeFragment(mConnection1);
 					break;
 				case 5:
-					changeFragment(mFAQ);
-					break;
-				case 6:
 					changeFragment (mMode1);
 					break;
 			}	
